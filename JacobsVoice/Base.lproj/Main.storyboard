@@ -82,17 +82,6 @@
                                     <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VSl-ya-jff"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3V-4q-qHl">
-                                <rect key="frame" x="598" y="500" width="180" height="160"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Mad">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbg-zh-fGb"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLd-3j-zkm">
                                 <rect key="frame" x="16" y="150" width="180" height="160"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -282,6 +271,17 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.78220858056135856" green="0.78220858056135856" blue="0.78220858056135856" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3V-4q-qHl">
+                                <rect key="frame" x="598" y="500" width="180" height="160"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Mad">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbg-zh-fGb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -289,11 +289,18 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="TextField" destination="4LW-qP-EPt" id="6cv-CP-gCc"/>
-                        <outlet property="button_bottom_one" destination="wfu-Ve-9cI" id="ijd-jB-IWW"/>
-                        <outlet property="button_button_one" destination="cXO-B1-DpF" id="XsG-1e-RUy"/>
-                        <outlet property="button_one" destination="QLd-3j-zkm" id="FRe-fG-kQf"/>
-                        <outlet property="button_three" destination="RXc-3F-vHt" id="rbK-TU-I3z"/>
-                        <outlet property="button_two" destination="5B5-kG-rgU" id="lfb-7m-3A9"/>
+                        <outlet property="textField" destination="4LW-qP-EPt" id="RQA-oP-oyp"/>
+                        <outletCollection property="buttons" destination="QLd-3j-zkm" collectionClass="NSMutableArray" id="0Xk-1e-n5h"/>
+                        <outletCollection property="buttons" destination="5B5-kG-rgU" collectionClass="NSMutableArray" id="0fs-Yc-qT6"/>
+                        <outletCollection property="buttons" destination="RXc-3F-vHt" collectionClass="NSMutableArray" id="QwZ-Jq-w4k"/>
+                        <outletCollection property="buttons" destination="bp8-fv-ZZf" collectionClass="NSMutableArray" id="Eci-xB-Ns7"/>
+                        <outletCollection property="buttons" destination="u75-lt-DfH" collectionClass="NSMutableArray" id="EU2-Fm-JNa"/>
+                        <outletCollection property="buttons" destination="cxZ-sL-XRQ" collectionClass="NSMutableArray" id="iRw-aG-8Wm"/>
+                        <outletCollection property="buttons" destination="fIQ-yg-c5k" collectionClass="NSMutableArray" id="AwR-LX-P9z"/>
+                        <outletCollection property="buttons" destination="4Pv-2o-K40" collectionClass="NSMutableArray" id="r42-QU-Fra"/>
+                        <outletCollection property="buttons" destination="sK4-1c-0AD" collectionClass="NSMutableArray" id="D4W-h4-HOm"/>
+                        <outletCollection property="buttons" destination="eF7-ha-UVg" collectionClass="NSMutableArray" id="ijt-kE-LD4"/>
+                        <outletCollection property="buttons" destination="O3V-4q-qHl" collectionClass="NSMutableArray" id="yqg-PV-mVM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

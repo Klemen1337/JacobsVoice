@@ -11,7 +11,7 @@ import AVFoundation
 
 public class SpeechHelper {
     var language:String = "en-US"
-    var rate:Float = 0.2;
+    var rate:Float = 0.1;
     var mySpeechSynthesizer:AVSpeechSynthesizer = AVSpeechSynthesizer()
     
     func say(text:String){

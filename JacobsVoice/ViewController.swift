@@ -10,17 +10,14 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-    @IBOutlet weak var TextField: UITextField!
-    @IBOutlet weak var button_one: UIButton!
-    @IBOutlet weak var button_two: UIButton!
-    @IBOutlet weak var button_three: UIButton!
-    @IBOutlet weak var button_bottom_one: UIButton!
-    @IBOutlet weak var button_button_one: UIButton!
     
+    @IBOutlet var buttons: [UIButton]!
+    @IBOutlet weak var textField: UITextField!
     var speechHelper = SpeechHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(EMOTIONS)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -30,8 +27,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func SpeakButtonClicked(sender: AnyObject) {
-        speechHelper.say(TextField.text)
-        TextField.text = ""
+        speechHelper.say(textField.text)
+        textField.text = ""
     }
     
     @IBAction func buttonClicked(sender: AnyObject) {
@@ -41,7 +38,7 @@ class ViewController: UIViewController {
     
     
     func appendText(text:String) {
-        TextField.text = TextField.text + text + " "
+        textField.text = textField.text + text + " "
     }
 }
 

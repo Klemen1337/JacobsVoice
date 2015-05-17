@@ -15,6 +15,7 @@
 		C4B5C4711B07F6A900732A2A /* JacobsVoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5C4701B07F6A900732A2A /* JacobsVoiceTests.swift */; };
 		C4B5C47B1B08013800732A2A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B5C47A1B08013800732A2A /* AVFoundation.framework */; };
 		C4B5C4821B08096D00732A2A /* SpeechHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5C4811B08096D00732A2A /* SpeechHelper.swift */; };
+		C4C0AB4A1B0845F400AB7EE0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C0AB491B0845F400AB7EE0 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		C4B5C4701B07F6A900732A2A /* JacobsVoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacobsVoiceTests.swift; sourceTree = "<group>"; };
 		C4B5C47A1B08013800732A2A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C4B5C4811B08096D00732A2A /* SpeechHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechHelper.swift; sourceTree = "<group>"; };
+		C4C0AB491B0845F400AB7EE0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +86,11 @@
 			isa = PBXGroup;
 			children = (
 				C4B5C4811B08096D00732A2A /* SpeechHelper.swift */,
+				C4C0AB491B0845F400AB7EE0 /* Constants.swift */,
 				C4B5C45A1B07F6A900732A2A /* AppDelegate.swift */,
 				C4B5C45C1B07F6A900732A2A /* ViewController.swift */,
-				C4B5C45E1B07F6A900732A2A /* Main.storyboard */,
 				C4B5C4611B07F6A900732A2A /* Images.xcassets */,
+				C4B5C45E1B07F6A900732A2A /* Main.storyboard */,
 				C4B5C4631B07F6A900732A2A /* LaunchScreen.xib */,
 				C4B5C4581B07F6A900732A2A /* Supporting Files */,
 			);
@@ -222,6 +225,7 @@
 				C4B5C45D1B07F6A900732A2A /* ViewController.swift in Sources */,
 				C4B5C45B1B07F6A900732A2A /* AppDelegate.swift in Sources */,
 				C4B5C4821B08096D00732A2A /* SpeechHelper.swift in Sources */,
+				C4C0AB4A1B0845F400AB7EE0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
