@@ -21,7 +21,42 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setCategoryButtonsTitles(CATEGORIES)
         setEmotions(EMOTIONS_MAIN, bottomButtonsArray: EMOTIONS_JOINTS)
+		
+		for (index, button) in enumerate(buttons){
+			var lpgr = UILongPressGestureRecognizer(target: self, action: "longPressed:")
+			button.addGestureRecognizer(lpgr)
+			button.userInteractionEnabled = true
+		}
     }
+	
+	func longPressed(longPress: UIGestureRecognizer) {
+		var inputTextField: UITextField?
+		if (longPress.state == UIGestureRecognizerState.Ended) {
+			// Gesture ended
+			if let someLabel = longPress.view as? UIButton
+			{
+				var alert = UIAlertController(title: "Edit button", message: "New value:", preferredStyle: UIAlertControllerStyle.Alert)
+				alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+					textField.placeholder = someLabel.titleLabel?.text
+					textField.secureTextEntry = false
+					inputTextField = textField
+				})
+				alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler:{ (alertAction:UIAlertAction!) in
+					// Text was changed
+					someLabel.setTitle(inputTextField!.text, forState: UIControlState.Normal);
+				}))
+				alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler:{ (alertAction:UIAlertAction!) in
+					// Nothing
+				}))
+				self.presentViewController(alert, animated: true, completion: nil)
+    
+			}
+
+		}else if (longPress.state == UIGestureRecognizerState.Began) {
+			// Gesture began
+		}
+	}
+	
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
