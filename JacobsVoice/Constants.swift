@@ -16,56 +16,56 @@ let CATEGORIES = [
     "Common"
 ]
 
-let EMOTIONS_MAIN = [
+var EMOTIONS_MAIN:[String] = [
     "Yes", "No", "Happy", "Sad",
     "Angry", "Hungry", "Tired", "Excited",
     "Bored", "Good", "Scared", "Sleepy"
 ]
 
-let EMOTIONS_JOINTS = [
+var EMOTIONS_JOINTS:[String] = [
 	"I am", "You are", "He is", "She is"
 ]
 
 
-let FOOD_MAIN = [
+var FOOD_MAIN:[String] = [
 	"Breakfast", "Launch", "Dinner", "Snack",
 	"Pizza", "Pancake", "I'm full", "Delicious",
 	"Disgusting", "More please", "Meat", "Vegetables"
 ]
 
-let FOOD_MAIN_JOINTS = [
+var FOOD_MAIN_JOINTS:[String] = [
 	"That's", "I don't eat", "I love"
 ]
 
 
-let FRIENDS_MAIN = [
+var FRIENDS_MAIN:[String] = [
 	"Klemen", "Andraz", "Igor", "Danijel",
     "Mom", "Dad", "Sister", "Brother",
     "Gramma", "Grampa", "Uncle", "Aunt"
 ]
 
-let FRIENDS_JOINTS = [
+var FRIENDS_JOINTS:[String] = [
 	"He is", "She is", "Talk to", "Call"
 ]
 
 
-let PLACES_MAIN = [
+var PLACES_MAIN:[String] = [
 	"Home", "House", "Garage", "School",
     "Bank","Street", "Hospital", "Library",
     "Restaurant", "Church", "", ""
 ]
 
-let PLACES_JOINTS = [
-	"I'm going", "I'm at", "He's", "She's",
+var PLACES_JOINTS:[String] = [
+	"I'm going", "I'm at", "He's at the", "She's at the",
 ]
 
 
-let COMMON_MAIN = [
+var COMMON_MAIN:[String] = [
 	"Yes", "No", "Hello", "Goodbye",
 	"Please", "Sorry", "Maybe", "I dont know",
     "Mon", "Dad", "Sister", "Brother",
 ]
 
-let COMMON_JOINTS = [
+var COMMON_JOINTS:[String] = [
 	"I am", "He is", "She is", "They are"
 ]

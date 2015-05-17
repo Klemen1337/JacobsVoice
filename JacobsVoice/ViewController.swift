@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     var speechHelper = SpeechHelper()
     var autoSpeak = false;
+    var emo:[String] = []
+    var selected = "Emotions"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,10 @@ class ViewController: UIViewController {
 			button.addGestureRecognizer(lpgr)
 			button.userInteractionEnabled = true
 		}
+    }
+    
+    @IBAction func buttonDemoDown(sender: AnyObject) {
+        speechHelper.say("Hello my name is Jacobs voice, I am a speach asistant. I am here to help you communicate with other people")
     }
 	
 	func longPressed(longPress: UIGestureRecognizer) {
@@ -48,6 +54,13 @@ class ViewController: UIViewController {
 				alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler:{ (alertAction:UIAlertAction!) in
 					// Text was changed
 					someLabel.setTitle(inputTextField!.text, forState: UIControlState.Normal);
+                    var text = inputTextField!.text
+                    for (index,b) in enumerate(self.buttons){
+                        if(button == b){
+                            self.emo[index] = text as String
+                            break
+                        }
+                    }
 				}))
 				alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler:{ (alertAction:UIAlertAction!) in
 					// Nothing
@@ -110,10 +123,14 @@ class ViewController: UIViewController {
     
     @IBAction func buttonClicked(sender: AnyObject) {
         var button:UIButton = sender as! UIButton
-        var text = button.titleLabel!.text!
+        var text = ""
+        for (index,b) in enumerate(buttons){
+            if(button == b){
+                text = emo[index] as String
+            }
+        }
         button.backgroundColor = UIColor(red:1.0, green:1.0,blue:1.0,alpha:1.0)
         print(text)
-
         if(autoSpeak){
             textField.text = text
             speechHelper.say(text)
@@ -125,6 +142,7 @@ class ViewController: UIViewController {
     @IBAction func buttonCategoryClicked(sender: AnyObject) {
         var button:UIButton = sender as! UIButton
         button.backgroundColor = UIColor(red:1.0, green:1.0,blue:1.0,alpha:1.0)
+        selected = sender.titleLabel!!.text!
         switch(sender.titleLabel!!.text!){
             case "Emotions":
                 setEmotions(EMOTIONS_MAIN, bottomButtonsArray: EMOTIONS_JOINTS)
@@ -148,12 +166,15 @@ class ViewController: UIViewController {
     
     
     func appendText(text:String) {
-        textField.text = textField.text + text + " "
+        if(!text.isEmpty){
+            textField.text = textField.text + text + " "
+        }
     }
     
-    func setEmotions(emotions:NSArray, bottomButtonsArray:NSArray){
+    func setEmotions(emotions:[String], bottomButtonsArray:[String]){
+        emo = emotions
         setBottomButtonsTitles(bottomButtonsArray)
-        setMainButtons(emotions)
+        setMainButtons(emo)
     }
     
     func setBottomButtonsTitles(bottomButtonsArray:NSArray){
