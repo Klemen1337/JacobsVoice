@@ -132,14 +132,14 @@ class ViewController: UIViewController {
             case "Food":
                 setEmotions(FOOD_MAIN, bottomButtonsArray: FOOD_MAIN_JOINTS)
                 break
-            case "Friends":
+            case "People":
                 setEmotions(FRIENDS_MAIN, bottomButtonsArray: FRIENDS_JOINTS)
                 break
             case "Places":
                 setEmotions(PLACES_MAIN, bottomButtonsArray: PLACES_JOINTS)
                 break
-            case "School":
-                setEmotions(SCHOOL_MAIN, bottomButtonsArray: SCHOOL_JOINTS)
+            case "Common":
+                setEmotions(COMMON_MAIN, bottomButtonsArray: COMMON_JOINTS)
                 break
             default:
                 break

@@ -11,9 +11,9 @@ import Foundation
 let CATEGORIES = [
     "Emotions",
     "Food",
-    "Friends",
+    "People",
     "Places",
-    "School"
+    "Common"
 ]
 
 let EMOTIONS_MAIN = [
@@ -40,8 +40,8 @@ let FOOD_MAIN_JOINTS = [
 
 let FRIENDS_MAIN = [
 	"Klemen", "Andraz", "Igor", "Danijel",
-    "", "", "", "",
-    "", "", "", ""
+    "Mom", "Dad", "Sister", "Brother",
+    "Gramma", "Grampa", "Uncle", "Aunt"
 ]
 
 let FRIENDS_JOINTS = [
@@ -60,12 +60,12 @@ let PLACES_JOINTS = [
 ]
 
 
-let SCHOOL_MAIN = [
-	"Bus", "Desk", "Pen", "Read",
-	"Draw", "Math", "", "",
-    "", "", "", "",
+let COMMON_MAIN = [
+	"Yes", "No", "Hello", "Goodbye",
+	"Please", "Sorry", "Maybe", "I dont know",
+    "Mon", "Dad", "Sister", "Brother",
 ]
 
-let SCHOOL_JOINTS = [
-	"me", "His", "Hers", "Their"
+let COMMON_JOINTS = [
+	"I am", "He is", "She is", "They are"
 ]
