@@ -13,6 +13,8 @@
 		C4B5C4621B07F6A900732A2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4B5C4611B07F6A900732A2A /* Images.xcassets */; };
 		C4B5C4651B07F6A900732A2A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B5C4631B07F6A900732A2A /* LaunchScreen.xib */; };
 		C4B5C4711B07F6A900732A2A /* JacobsVoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5C4701B07F6A900732A2A /* JacobsVoiceTests.swift */; };
+		C4B5C47B1B08013800732A2A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B5C47A1B08013800732A2A /* AVFoundation.framework */; };
+		C4B5C4821B08096D00732A2A /* SpeechHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5C4811B08096D00732A2A /* SpeechHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		C4B5C46A1B07F6A900732A2A /* JacobsVoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JacobsVoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B5C46F1B07F6A900732A2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4B5C4701B07F6A900732A2A /* JacobsVoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacobsVoiceTests.swift; sourceTree = "<group>"; };
+		C4B5C47A1B08013800732A2A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C4B5C4811B08096D00732A2A /* SpeechHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4B5C47B1B08013800732A2A /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +64,7 @@
 		C4B5C44C1B07F6A900732A2A = {
 			isa = PBXGroup;
 			children = (
+				C4B5C47A1B08013800732A2A /* AVFoundation.framework */,
 				C4B5C4571B07F6A900732A2A /* JacobsVoice */,
 				C4B5C46D1B07F6A900732A2A /* JacobsVoiceTests */,
 				C4B5C4561B07F6A900732A2A /* Products */,
@@ -77,6 +83,7 @@
 		C4B5C4571B07F6A900732A2A /* JacobsVoice */ = {
 			isa = PBXGroup;
 			children = (
+				C4B5C4811B08096D00732A2A /* SpeechHelper.swift */,
 				C4B5C45A1B07F6A900732A2A /* AppDelegate.swift */,
 				C4B5C45C1B07F6A900732A2A /* ViewController.swift */,
 				C4B5C45E1B07F6A900732A2A /* Main.storyboard */,
@@ -214,6 +221,7 @@
 			files = (
 				C4B5C45D1B07F6A900732A2A /* ViewController.swift in Sources */,
 				C4B5C45B1B07F6A900732A2A /* AppDelegate.swift in Sources */,
+				C4B5C4821B08096D00732A2A /* SpeechHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,9 +350,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = JacobsVoice/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -352,9 +365,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = JacobsVoice/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -402,7 +420,7 @@
 				C4B5C4731B07F6A900732A2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C4B5C4741B07F6A900732A2A /* Build configuration list for PBXNativeTarget "JacobsVoice" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +429,7 @@
 				C4B5C4761B07F6A900732A2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		C4B5C4771B07F6A900732A2A /* Build configuration list for PBXNativeTarget "JacobsVoiceTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +438,7 @@
 				C4B5C4791B07F6A900732A2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
