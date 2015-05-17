@@ -67,5 +67,5 @@ let SCHOOL_MAIN = [
 ]
 
 let SCHOOL_JOINTS = [
-	"My", "His", "Hers", "Their"
+	"me", "His", "Hers", "Their"
 ]

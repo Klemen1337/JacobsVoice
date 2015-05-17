@@ -11,11 +11,13 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var autoButton: UIButton!
     @IBOutlet var categoryButtons: [UIButton]!
     @IBOutlet var bottomButtons: [UIButton]!
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet weak var textField: UITextField!
     var speechHelper = SpeechHelper()
+    var autoSpeak = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,9 +74,26 @@ class ViewController: UIViewController {
         textField.text = ""
     }
     
+    @IBAction func buttonAutoClicked(sender: AnyObject) {
+        if(autoSpeak){
+            autoButton.setTitle("OFF", forState: UIControlState.Normal)
+            autoSpeak = false
+        } else {
+            autoButton.setTitle("ON", forState: UIControlState.Normal)
+            autoSpeak = true
+        }
+        
+    }
+    
     @IBAction func buttonClicked(sender: AnyObject) {
         var button:UIButton = sender as! UIButton
-        appendText(sender.titleLabel!!.text!)
+        var text = sender.titleLabel!!.text!
+        if(autoSpeak){
+            textField.text = text
+            speechHelper.say(text)
+        } else {
+            appendText(text)
+        }
     }
     
     @IBAction func buttonCategoryClicked(sender: AnyObject) {

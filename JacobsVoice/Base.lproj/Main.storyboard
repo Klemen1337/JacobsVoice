@@ -248,55 +248,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.85962335328863126" green="0.85962335328863126" blue="0.85962335328863126" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b47-22-r3g">
-                                <rect key="frame" x="0.0" y="20" width="1024" height="113"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gI-iW-dDO">
-                                        <rect key="frame" x="865" y="16" width="142" height="81"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="SPEAK">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="SpeakButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="711-Q3-MqV"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7p-ez-ROd">
-                                        <rect key="frame" x="800" y="60" width="57" height="37"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="X">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ClearButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x7Z-j2-cF7"/>
-                                            <action selector="SpeakButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A65-8P-7sx"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="11" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4LW-qP-EPt">
-                                        <rect key="frame" x="17" y="16" width="760" height="81"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="yes" enablesReturnKeyAutomatically="YES"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTt-Zt-ZBu">
-                                        <rect key="frame" x="800" y="15" width="57" height="37"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="OFF">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ClearButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F4d-gF-35G"/>
-                                            <action selector="SpeakButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgO-5a-PoS"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.78220858056135856" green="0.78220858056135856" blue="0.78220858056135856" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u75-lt-DfH">
                                 <rect key="frame" x="16" y="325" width="180" height="160"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -308,6 +259,57 @@
                                     <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IgF-0m-ifg"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b47-22-r3g">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="113"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="11" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4LW-qP-EPt">
+                                        <rect key="frame" x="17" y="16" width="760" height="81"/>
+                                        <color key="textColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="yes" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gI-iW-dDO">
+                                        <rect key="frame" x="845" y="16" width="166" height="82"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="imageEdgeInsets" minX="50" minY="10" maxX="50" maxY="10"/>
+                                        <state key="normal" image="iconmonstr-megaphone-8-icon-128">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="SpeakButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="711-Q3-MqV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7p-ez-ROd">
+                                        <rect key="frame" x="800" y="61" width="37" height="37"/>
+                                        <color key="backgroundColor" red="1" green="0.51992424882717825" blue="0.55076688024845144" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" image="iconmonstr-trash-can-icon-48">
+                                            <color key="titleColor" red="0.67964804292929293" green="0.099563088081015494" blue="0.083241920020071788" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ClearButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x7Z-j2-cF7"/>
+                                            <action selector="SpeakButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A65-8P-7sx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTt-Zt-ZBu">
+                                        <rect key="frame" x="800" y="16" width="37" height="37"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <state key="normal" title="OFF">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ClearButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F4d-gF-35G"/>
+                                            <action selector="SpeakButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgO-5a-PoS"/>
+                                            <action selector="buttonAutoClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pcv-Bp-BXN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.79607843137254897" green="0.79607843137254897" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -315,6 +317,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="TextField" destination="4LW-qP-EPt" id="6cv-CP-gCc"/>
+                        <outlet property="autoButton" destination="mTt-Zt-ZBu" id="P41-Sa-SLR"/>
                         <outlet property="textField" destination="4LW-qP-EPt" id="RQA-oP-oyp"/>
                         <outletCollection property="buttons" destination="QLd-3j-zkm" collectionClass="NSMutableArray" id="0Xk-1e-n5h"/>
                         <outletCollection property="buttons" destination="5B5-kG-rgU" collectionClass="NSMutableArray" id="0fs-Yc-qT6"/>
@@ -344,4 +347,8 @@
             <point key="canvasLocation" x="273" y="282"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconmonstr-megaphone-8-icon-128" width="128" height="128"/>
+        <image name="iconmonstr-trash-can-icon-48" width="48" height="48"/>
+    </resources>
 </document>
