@@ -157,8 +157,8 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="buttonBottomClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q8f-Hx-fFa"/>
                                             <action selector="buttonBottomDown:" destination="BYZ-38-t0r" eventType="touchDown" id="eBv-tZ-wIA"/>
-                                            <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aj0-mk-WkB"/>
                                             <action selector="buttonUpOutside:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="rAd-aN-S1o"/>
                                         </connections>
                                     </button>
@@ -170,8 +170,8 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="buttonBottomClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Xy-dP-ARF"/>
                                             <action selector="buttonBottomDown:" destination="BYZ-38-t0r" eventType="touchDown" id="6jZ-1F-l8Q"/>
-                                            <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vfS-i4-mgZ"/>
                                             <action selector="buttonUpOutside:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="NXB-O7-smp"/>
                                         </connections>
                                     </button>
@@ -183,8 +183,8 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="buttonBottomClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qa9-lb-BfZ"/>
                                             <action selector="buttonBottomDown:" destination="BYZ-38-t0r" eventType="touchDown" id="8Tp-m2-He0"/>
-                                            <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6N8-Gb-idW"/>
                                             <action selector="buttonUpOutside:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="7vd-xw-ITP"/>
                                         </connections>
                                     </button>
@@ -196,8 +196,8 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="buttonBottomClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EsY-7Q-k85"/>
                                             <action selector="buttonBottomDown:" destination="BYZ-38-t0r" eventType="touchDown" id="8RM-HV-aLs"/>
-                                            <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fMf-A2-hgF"/>
                                             <action selector="buttonUpOutside:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="mPM-AR-mzf"/>
                                         </connections>
                                     </button>

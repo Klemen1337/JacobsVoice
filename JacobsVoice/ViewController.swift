@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var speechHelper = SpeechHelper()
     var autoSpeak = false;
     var emo:[String] = []
+    var emoButtom:[String] = []
     var selected = "Emotions"
     
     override func viewDidLoad() {
@@ -58,6 +59,7 @@ class ViewController: UIViewController {
                     for (index,b) in enumerate(self.buttons){
                         if(button == b){
                             self.emo[index] = text as String
+                            self.saveToConstants(text, position: index)
                             break
                         }
                     }
@@ -100,6 +102,8 @@ class ViewController: UIViewController {
         
     }
     
+    
+    
     @IBAction func buttonDown(sender: AnyObject) {
         var button:UIButton = sender as! UIButton
         button.backgroundColor = UIColorFromRGB("64B069")
@@ -121,6 +125,8 @@ class ViewController: UIViewController {
         button.backgroundColor = UIColor(red:1.0, green:1.0,blue:1.0,alpha:1.0)
     }
     
+    
+    
     @IBAction func buttonClicked(sender: AnyObject) {
         var button:UIButton = sender as! UIButton
         var text = ""
@@ -138,6 +144,25 @@ class ViewController: UIViewController {
             appendText(text)
         }
     }
+    
+    @IBAction func buttonBottomClicked(sender: AnyObject) {
+        var button:UIButton = sender as! UIButton
+        var text = ""
+        for (index,b) in enumerate(bottomButtons){
+            if(button == b){
+                text = emoButtom[index] as String
+            }
+        }
+        button.backgroundColor = UIColor(red:1.0, green:1.0,blue:1.0,alpha:1.0)
+        print(text)
+        if(autoSpeak){
+            textField.text = text
+            speechHelper.say(text)
+        } else {
+            appendText(text)
+        }
+    }
+    
     
     @IBAction func buttonCategoryClicked(sender: AnyObject) {
         var button:UIButton = sender as! UIButton
@@ -173,31 +198,55 @@ class ViewController: UIViewController {
     
     func setEmotions(emotions:[String], bottomButtonsArray:[String]){
         emo = emotions
+        emoButtom = bottomButtonsArray
         setBottomButtonsTitles(bottomButtonsArray)
         setMainButtons(emo)
     }
     
-    func setBottomButtonsTitles(bottomButtonsArray:NSArray){
+    func setBottomButtonsTitles(bottomButtonsArray:[String]){
         for (index, title) in enumerate(bottomButtonsArray){
             dispatch_async(dispatch_get_main_queue()) {
-                self.bottomButtons[index].setTitle(title as? String, forState: UIControlState.Normal)
+                self.bottomButtons[index].setTitle(title, forState: UIControlState.Normal)
             }
         }
     }
     
-    func setMainButtons(emotions:NSArray){
+    func setMainButtons(emotions:[String]){
         for (index, title) in enumerate(emotions){
             dispatch_async(dispatch_get_main_queue()) {
-                self.buttons[index].setTitle(title as? String, forState: UIControlState.Normal)
+                self.buttons[index].setTitle(title, forState: UIControlState.Normal)
             }
         }
     }
     
-    func setCategoryButtonsTitles(categoryButtonTitles:NSArray){
+    func setCategoryButtonsTitles(categoryButtonTitles:[String]){
         for (index, title) in enumerate(categoryButtonTitles){
             dispatch_async(dispatch_get_main_queue()) {
-                self.categoryButtons[index].setTitle(title as? String, forState: UIControlState.Normal)
+                self.categoryButtons[index].setTitle(title, forState: UIControlState.Normal)
             }
+        }
+    }
+    
+    
+    func saveToConstants(name:String, position:Int){
+        switch(selected){
+        case "Emotions":
+            EMOTIONS_MAIN[position] = name
+            break
+        case "Food":
+            FOOD_MAIN[position] = name
+            break
+        case "People":
+            FRIENDS_MAIN[position] = name
+            break
+        case "Places":
+            PLACES_MAIN[position] = name
+            break
+        case "Common":
+            COMMON_MAIN[position] = name
+            break
+        default:
+            break
         }
     }
     
