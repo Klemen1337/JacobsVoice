@@ -17,9 +17,9 @@ let CATEGORIES = [
 ]
 
 let EMOTIONS_MAIN = [
-    "Happy", "Sad", "Angry", "Hungry",
-    "Tired", "Excited", "Bored", "Good",
-    "Scared", "Sleepy", "Hungry", "Mad"
+    "Yes", "No", "Happy", "Sad",
+    "Angry", "Hungry", "Tired", "Excited",
+    "Bored", "Good", "Scared", "Sleepy"
 ]
 
 let EMOTIONS_JOINTS = [

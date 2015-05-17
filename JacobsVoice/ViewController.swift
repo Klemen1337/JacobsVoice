@@ -35,8 +35,10 @@ class ViewController: UIViewController {
 		var inputTextField: UITextField?
 		if (longPress.state == UIGestureRecognizerState.Ended) {
 			// Gesture ended
-			if let someLabel = longPress.view as? UIButton
-			{
+            var button = longPress.view as? UIButton
+            button!.backgroundColor = UIColor(red:1.0, green:1.0,blue:1.0,alpha:1.0)
+
+			if let someLabel = longPress.view as? UIButton {
 				var alert = UIAlertController(title: "Edit button", message: "New value:", preferredStyle: UIAlertControllerStyle.Alert)
 				alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
 					textField.placeholder = someLabel.titleLabel?.text
@@ -54,7 +56,7 @@ class ViewController: UIViewController {
     
 			}
 
-		}else if (longPress.state == UIGestureRecognizerState.Began) {
+		} else if (longPress.state == UIGestureRecognizerState.Began) {
 			// Gesture began
 		}
 	}
@@ -71,7 +73,7 @@ class ViewController: UIViewController {
     
     @IBAction func SpeakButtonClicked(sender: AnyObject) {
         speechHelper.say(textField.text)
-        textField.text = ""
+        //textField.text = ""
     }
     
     @IBAction func buttonAutoClicked(sender: AnyObject) {
@@ -85,9 +87,33 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func buttonDown(sender: AnyObject) {
+        var button:UIButton = sender as! UIButton
+        button.backgroundColor = UIColorFromRGB("64B069")
+        
+    }
+    
+    @IBAction func buttonCategoryDown(sender: AnyObject) {
+        var button:UIButton = sender as! UIButton
+        button.backgroundColor = UIColorFromRGB("37B0A8")
+    }
+    
+    @IBAction func buttonBottomDown(sender: AnyObject) {
+        var button:UIButton = sender as! UIButton
+        button.backgroundColor = UIColorFromRGB("CDD14D")
+    }
+    
+    @IBAction func buttonUpOutside(sender: AnyObject) {
+        var button:UIButton = sender as! UIButton
+        button.backgroundColor = UIColor(red:1.0, green:1.0,blue:1.0,alpha:1.0)
+    }
+    
     @IBAction func buttonClicked(sender: AnyObject) {
         var button:UIButton = sender as! UIButton
-        var text = sender.titleLabel!!.text!
+        var text = button.titleLabel!.text!
+        button.backgroundColor = UIColor(red:1.0, green:1.0,blue:1.0,alpha:1.0)
+        print(text)
+
         if(autoSpeak){
             textField.text = text
             speechHelper.say(text)
@@ -98,6 +124,7 @@ class ViewController: UIViewController {
     
     @IBAction func buttonCategoryClicked(sender: AnyObject) {
         var button:UIButton = sender as! UIButton
+        button.backgroundColor = UIColor(red:1.0, green:1.0,blue:1.0,alpha:1.0)
         switch(sender.titleLabel!!.text!){
             case "Emotions":
                 setEmotions(EMOTIONS_MAIN, bottomButtonsArray: EMOTIONS_JOINTS)
@@ -131,20 +158,40 @@ class ViewController: UIViewController {
     
     func setBottomButtonsTitles(bottomButtonsArray:NSArray){
         for (index, title) in enumerate(bottomButtonsArray){
-            bottomButtons[index].setTitle(title as? String, forState: UIControlState.Normal)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.bottomButtons[index].setTitle(title as? String, forState: UIControlState.Normal)
+            }
         }
     }
     
     func setMainButtons(emotions:NSArray){
         for (index, title) in enumerate(emotions){
-            buttons[index].setTitle(title as? String, forState: UIControlState.Normal)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.buttons[index].setTitle(title as? String, forState: UIControlState.Normal)
+            }
         }
     }
     
     func setCategoryButtonsTitles(categoryButtonTitles:NSArray){
         for (index, title) in enumerate(categoryButtonTitles){
-            categoryButtons[index].setTitle(title as? String, forState: UIControlState.Normal)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.categoryButtons[index].setTitle(title as? String, forState: UIControlState.Normal)
+            }
         }
+    }
+    
+    
+    func UIColorFromRGB(colorCode: String, alpha: Float = 1.0) -> UIColor {
+        var scanner = NSScanner(string:colorCode)
+        var color:UInt32 = 0;
+        scanner.scanHexInt(&color)
+        
+        let mask = 0x000000FF
+        let r = CGFloat(Float(Int(color >> 16) & mask)/255.0)
+        let g = CGFloat(Float(Int(color >> 8) & mask)/255.0)
+        let b = CGFloat(Float(Int(color) & mask)/255.0)
+        
+        return UIColor(red: r, green: g, blue: b, alpha: CGFloat(alpha))
     }
 }
 
