@@ -7,15 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD4145206524DB18437AA37A /* Pods_JacobsVoiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615EC9EE21DF99D746386303 /* Pods_JacobsVoiceTests.framework */; };
+		C415E31F20E6DD24007683BE /* ButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C415E31E20E6DD24007683BE /* ButtonModel.swift */; };
+		C415E32120E6E30C007683BE /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C415E32020E6E30C007683BE /* ButtonCell.swift */; };
+		C415E32420E6FB56007683BE /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C415E32320E6FB56007683BE /* CategoryCell.swift */; };
+		C415E32720E78D94007683BE /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C415E32620E78D94007683BE /* SettingsController.swift */; };
+		C415E32920E79360007683BE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C415E32820E79360007683BE /* Launch Screen.storyboard */; };
+		C415E32F20EABFDC007683BE /* DesignableExstension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C415E32E20EABFDC007683BE /* DesignableExstension.swift */; };
+		C415E33220EACB61007683BE /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C415E33120EACB61007683BE /* UIColorExtension.swift */; };
+		C415E33420EACC5C007683BE /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C415E33320EACC5C007683BE /* CategoryModel.swift */; };
+		C415E33620EACEBA007683BE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C415E33520EACEBA007683BE /* UIButtonExtension.swift */; };
 		C4B5C45B1B07F6A900732A2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5C45A1B07F6A900732A2A /* AppDelegate.swift */; };
 		C4B5C45D1B07F6A900732A2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5C45C1B07F6A900732A2A /* ViewController.swift */; };
 		C4B5C4601B07F6A900732A2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4B5C45E1B07F6A900732A2A /* Main.storyboard */; };
 		C4B5C4621B07F6A900732A2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4B5C4611B07F6A900732A2A /* Images.xcassets */; };
-		C4B5C4651B07F6A900732A2A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B5C4631B07F6A900732A2A /* LaunchScreen.xib */; };
 		C4B5C4711B07F6A900732A2A /* JacobsVoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5C4701B07F6A900732A2A /* JacobsVoiceTests.swift */; };
 		C4B5C47B1B08013800732A2A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B5C47A1B08013800732A2A /* AVFoundation.framework */; };
 		C4B5C4821B08096D00732A2A /* SpeechHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5C4811B08096D00732A2A /* SpeechHelper.swift */; };
 		C4C0AB4A1B0845F400AB7EE0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C0AB491B0845F400AB7EE0 /* Constants.swift */; };
+		C4F1ABBA1C7A2489000D5773 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F1ABB91C7A2489000D5773 /* DatabaseHelper.swift */; };
+		DE21B19138DDC1BC3D6EB680 /* Pods_JacobsVoice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F335777E2B3BE1CF4649DCC9 /* Pods_JacobsVoice.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,19 +40,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		141BD2C22055700D4B26562F /* Pods-JacobsVoice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JacobsVoice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JacobsVoice/Pods-JacobsVoice.debug.xcconfig"; sourceTree = "<group>"; };
+		615EC9EE21DF99D746386303 /* Pods_JacobsVoiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JacobsVoiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB2D9BFE9B2D17231F4EF8E0 /* Pods-JacobsVoiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JacobsVoiceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JacobsVoiceTests/Pods-JacobsVoiceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C415E31E20E6DD24007683BE /* ButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModel.swift; sourceTree = "<group>"; };
+		C415E32020E6E30C007683BE /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		C415E32320E6FB56007683BE /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		C415E32620E78D94007683BE /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		C415E32820E79360007683BE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		C415E32A20E7952E007683BE /* JacobsVoice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JacobsVoice.entitlements; sourceTree = "<group>"; };
+		C415E32E20EABFDC007683BE /* DesignableExstension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableExstension.swift; sourceTree = "<group>"; };
+		C415E33120EACB61007683BE /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		C415E33320EACC5C007683BE /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		C415E33520EACEBA007683BE /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		C4B5C4551B07F6A900732A2A /* JacobsVoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JacobsVoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B5C4591B07F6A900732A2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4B5C45A1B07F6A900732A2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4B5C45C1B07F6A900732A2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C4B5C45F1B07F6A900732A2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4B5C4611B07F6A900732A2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C4B5C4641B07F6A900732A2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C4B5C46A1B07F6A900732A2A /* JacobsVoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JacobsVoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B5C46F1B07F6A900732A2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4B5C4701B07F6A900732A2A /* JacobsVoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JacobsVoiceTests.swift; sourceTree = "<group>"; };
 		C4B5C47A1B08013800732A2A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C4B5C4811B08096D00732A2A /* SpeechHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechHelper.swift; sourceTree = "<group>"; };
 		C4C0AB491B0845F400AB7EE0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C4F1ABB91C7A2489000D5773 /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
+		D57DAB2A165DDF67DA0164F3 /* Pods-JacobsVoice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JacobsVoice.release.xcconfig"; path = "Pods/Target Support Files/Pods-JacobsVoice/Pods-JacobsVoice.release.xcconfig"; sourceTree = "<group>"; };
+		F335777E2B3BE1CF4649DCC9 /* Pods_JacobsVoice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JacobsVoice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDF4668E43AE6034B4B86073 /* Pods-JacobsVoiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JacobsVoiceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JacobsVoiceTests/Pods-JacobsVoiceTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4B5C47B1B08013800732A2A /* AVFoundation.framework in Frameworks */,
+				DE21B19138DDC1BC3D6EB680 /* Pods_JacobsVoice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,12 +85,72 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD4145206524DB18437AA37A /* Pods_JacobsVoiceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27BF69CF6C7035F87AA05B94 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				141BD2C22055700D4B26562F /* Pods-JacobsVoice.debug.xcconfig */,
+				D57DAB2A165DDF67DA0164F3 /* Pods-JacobsVoice.release.xcconfig */,
+				AB2D9BFE9B2D17231F4EF8E0 /* Pods-JacobsVoiceTests.debug.xcconfig */,
+				FDF4668E43AE6034B4B86073 /* Pods-JacobsVoiceTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3A627F4049145EBB3FDF5299 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F335777E2B3BE1CF4649DCC9 /* Pods_JacobsVoice.framework */,
+				615EC9EE21DF99D746386303 /* Pods_JacobsVoiceTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C415E31D20E6DCE9007683BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C415E31E20E6DD24007683BE /* ButtonModel.swift */,
+				C415E33320EACC5C007683BE /* CategoryModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C415E33020EACB47007683BE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C415E32E20EABFDC007683BE /* DesignableExstension.swift */,
+				C415E33120EACB61007683BE /* UIColorExtension.swift */,
+				C415E33520EACEBA007683BE /* UIButtonExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		C4903CB020E6DC83000C7862 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C4B5C4811B08096D00732A2A /* SpeechHelper.swift */,
+				C4F1ABB91C7A2489000D5773 /* DatabaseHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		C4903CB120E6DC8B000C7862 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C415E32020E6E30C007683BE /* ButtonCell.swift */,
+				C415E32320E6FB56007683BE /* CategoryCell.swift */,
+				C4B5C45C1B07F6A900732A2A /* ViewController.swift */,
+				C415E32620E78D94007683BE /* SettingsController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		C4B5C44C1B07F6A900732A2A = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +158,8 @@
 				C4B5C4571B07F6A900732A2A /* JacobsVoice */,
 				C4B5C46D1B07F6A900732A2A /* JacobsVoiceTests */,
 				C4B5C4561B07F6A900732A2A /* Products */,
+				27BF69CF6C7035F87AA05B94 /* Pods */,
+				3A627F4049145EBB3FDF5299 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,13 +175,15 @@
 		C4B5C4571B07F6A900732A2A /* JacobsVoice */ = {
 			isa = PBXGroup;
 			children = (
-				C4B5C4811B08096D00732A2A /* SpeechHelper.swift */,
+				C415E33020EACB47007683BE /* Extensions */,
+				C415E31D20E6DCE9007683BE /* Models */,
+				C4903CB120E6DC8B000C7862 /* Controllers */,
+				C4903CB020E6DC83000C7862 /* Helpers */,
 				C4C0AB491B0845F400AB7EE0 /* Constants.swift */,
 				C4B5C45A1B07F6A900732A2A /* AppDelegate.swift */,
-				C4B5C45C1B07F6A900732A2A /* ViewController.swift */,
 				C4B5C4611B07F6A900732A2A /* Images.xcassets */,
 				C4B5C45E1B07F6A900732A2A /* Main.storyboard */,
-				C4B5C4631B07F6A900732A2A /* LaunchScreen.xib */,
+				C415E32820E79360007683BE /* Launch Screen.storyboard */,
 				C4B5C4581B07F6A900732A2A /* Supporting Files */,
 			);
 			path = JacobsVoice;
@@ -100,6 +192,7 @@
 		C4B5C4581B07F6A900732A2A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C415E32A20E7952E007683BE /* JacobsVoice.entitlements */,
 				C4B5C4591B07F6A900732A2A /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -129,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4B5C4741B07F6A900732A2A /* Build configuration list for PBXNativeTarget "JacobsVoice" */;
 			buildPhases = (
+				77DE47F18A5BFE36E1A4C70A /* [CP] Check Pods Manifest.lock */,
 				C4B5C4511B07F6A900732A2A /* Sources */,
 				C4B5C4521B07F6A900732A2A /* Frameworks */,
 				C4B5C4531B07F6A900732A2A /* Resources */,
+				B62594DE24373F35AAED2D48 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -146,6 +241,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4B5C4771B07F6A900732A2A /* Build configuration list for PBXNativeTarget "JacobsVoiceTests" */;
 			buildPhases = (
+				BB75F2B546837195168C866C /* [CP] Check Pods Manifest.lock */,
 				C4B5C4661B07F6A900732A2A /* Sources */,
 				C4B5C4671B07F6A900732A2A /* Frameworks */,
 				C4B5C4681B07F6A900732A2A /* Resources */,
@@ -166,11 +262,22 @@
 		C4B5C44D1B07F6A900732A2A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Klemen Kastelic";
 				TargetAttributes = {
 					C4B5C4541B07F6A900732A2A = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = WAZGJNXQC8;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					C4B5C4691B07F6A900732A2A = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -202,8 +309,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C415E32920E79360007683BE /* Launch Screen.storyboard in Resources */,
 				C4B5C4601B07F6A900732A2A /* Main.storyboard in Resources */,
-				C4B5C4651B07F6A900732A2A /* LaunchScreen.xib in Resources */,
 				C4B5C4621B07F6A900732A2A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,15 +324,83 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		77DE47F18A5BFE36E1A4C70A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JacobsVoice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B62594DE24373F35AAED2D48 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JacobsVoice/Pods-JacobsVoice-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JacobsVoice/Pods-JacobsVoice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB75F2B546837195168C866C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JacobsVoiceTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C4B5C4511B07F6A900732A2A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C415E32720E78D94007683BE /* SettingsController.swift in Sources */,
+				C415E33420EACC5C007683BE /* CategoryModel.swift in Sources */,
 				C4B5C45D1B07F6A900732A2A /* ViewController.swift in Sources */,
 				C4B5C45B1B07F6A900732A2A /* AppDelegate.swift in Sources */,
 				C4B5C4821B08096D00732A2A /* SpeechHelper.swift in Sources */,
+				C415E32420E6FB56007683BE /* CategoryCell.swift in Sources */,
+				C4F1ABBA1C7A2489000D5773 /* DatabaseHelper.swift in Sources */,
 				C4C0AB4A1B0845F400AB7EE0 /* Constants.swift in Sources */,
+				C415E33620EACEBA007683BE /* UIButtonExtension.swift in Sources */,
+				C415E31F20E6DD24007683BE /* ButtonModel.swift in Sources */,
+				C415E33220EACB61007683BE /* UIColorExtension.swift in Sources */,
+				C415E32F20EABFDC007683BE /* DesignableExstension.swift in Sources */,
+				C415E32120E6E30C007683BE /* ButtonCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,14 +431,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		C4B5C4631B07F6A900732A2A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C4B5C4641B07F6A900732A2A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -275,19 +442,30 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -308,6 +486,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -320,13 +499,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -345,6 +534,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -352,48 +543,57 @@
 		};
 		C4B5C4751B07F6A900732A2A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 141BD2C22055700D4B26562F /* Pods-JacobsVoice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JacobsVoice/JacobsVoice.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WAZGJNXQC8;
 				INFOPLIST_FILE = JacobsVoice/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.kastelic.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
 		C4B5C4761B07F6A900732A2A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D57DAB2A165DDF67DA0164F3 /* Pods-JacobsVoice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JacobsVoice/JacobsVoice.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WAZGJNXQC8;
 				INFOPLIST_FILE = JacobsVoice/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.kastelic.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
 		C4B5C4781B07F6A900732A2A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB2D9BFE9B2D17231F4EF8E0 /* Pods-JacobsVoiceTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = JacobsVoiceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.kastelic.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JacobsVoice.app/JacobsVoice";
 			};
@@ -401,14 +601,13 @@
 		};
 		C4B5C4791B07F6A900732A2A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDF4668E43AE6034B4B86073 /* Pods-JacobsVoiceTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = JacobsVoiceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.kastelic.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JacobsVoice.app/JacobsVoice";
 			};

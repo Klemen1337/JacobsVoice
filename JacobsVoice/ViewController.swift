@@ -7,261 +7,252 @@
 //
 
 import UIKit
-import AVFoundation
+//import AVFoundation
+import RealmSwift
 
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    @IBOutlet weak var ButtonsCollectionView: UICollectionView!
+    @IBOutlet weak var CategoryCollectionView: UICollectionView!
     @IBOutlet weak var autoButton: UIButton!
-    @IBOutlet var categoryButtons: [UIButton]!
-    @IBOutlet var bottomButtons: [UIButton]!
-    @IBOutlet var buttons: [UIButton]!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var categoryView: UIView!
+    @IBOutlet weak var buttonsView: UIView!
+    
+    private var buttons: [Button] = []
+    private var categories: [Category] = []
+    var selectedCategory: String = ""
     var speechHelper = SpeechHelper()
+    var databaseHelper = DatabaseHelper()
     var autoSpeak = false;
-    var emo:[String] = []
-    var emoButtom:[String] = []
-    var selected = "Emotions"
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setCategoryButtonsTitles(CATEGORIES)
-        setEmotions(EMOTIONS_MAIN, bottomButtonsArray: EMOTIONS_JOINTS)
-		
-		for (index, button) in enumerate(buttons){
-			var lpgr = UILongPressGestureRecognizer(target: self, action: "longPressed:")
-			button.addGestureRecognizer(lpgr)
-			button.userInteractionEnabled = true
-		}
-    }
-    
-    @IBAction func buttonDemoDown(sender: AnyObject) {
-        speechHelper.say("Hello my name is Jacobs voice, I am a speach asistant. I am here to help you communicate with other people")
-    }
-	
-	func longPressed(longPress: UIGestureRecognizer) {
-		var inputTextField: UITextField?
-		if (longPress.state == UIGestureRecognizerState.Ended) {
-			// Gesture ended
-            var button = longPress.view as? UIButton
-            button!.backgroundColor = UIColor(red:1.0, green:1.0,blue:1.0,alpha:1.0)
 
-			if let someLabel = longPress.view as? UIButton {
-				var alert = UIAlertController(title: "Edit button", message: "New value:", preferredStyle: UIAlertControllerStyle.Alert)
-				alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
-					textField.placeholder = someLabel.titleLabel?.text
-					textField.secureTextEntry = false
-					inputTextField = textField
-				})
-				alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler:{ (alertAction:UIAlertAction!) in
-					// Text was changed
-					someLabel.setTitle(inputTextField!.text, forState: UIControlState.Normal);
-                    var text = inputTextField!.text
-                    for (index,b) in enumerate(self.buttons){
-                        if(button == b){
-                            self.emo[index] = text as String
-                            self.saveToConstants(text, position: index)
-                            break
-                        }
-                    }
-				}))
-				alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler:{ (alertAction:UIAlertAction!) in
-					// Nothing
-				}))
-				self.presentViewController(alert, animated: true, completion: nil)
-    
-			}
-
-		} else if (longPress.state == UIGestureRecognizerState.Began) {
-			// Gesture began
-		}
-	}
-	
-
+    // ==============================================================
+    //  Memory warning
+    // ==============================================================
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // ==============================================================
+    //  View did load
+    // ==============================================================
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //let realm = try! Realm()
+        //try! realm.write() {
+        //    let category = realm.create(Category.self, value: ["name": "Category 1"])
+        //    realm.create(Button.self, value: ["name": "This is a test", "category": category])
+        //}
+        //
+        //let tanDogs = realm.objects(Button.self)
+        //print(tanDogs)
+
+        // Setup collection views
+        self.setCollectionViewCellSize()
+        
+        // Setup categories
+        self.setUpCategories()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setCollectionViewCellSize), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+
+    }
+    
+    
+    // ==============================================================
+    //  Set collection view cell size
+    // ==============================================================
+    @objc func setCollectionViewCellSize(){
+        // Set up buttons collection view
+        ButtonsCollectionView.delegate = self
+        ButtonsCollectionView.dataSource = self
+        let spacing: CGFloat = 23.0
+        let width = (ButtonsCollectionView.bounds.width - spacing)/4.0
+        let height = (ButtonsCollectionView.bounds.width/4.0)/1.2
+        let layout = ButtonsCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: width, height: height)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: spacing, right: spacing)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        
+        
+        // Setup category collection view
+        CategoryCollectionView.delegate = self
+        CategoryCollectionView.dataSource = self
+        let width2 = CategoryCollectionView.bounds.width
+        let height2 = CategoryCollectionView.bounds.width/2
+        let layout2 = CategoryCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout2.itemSize = CGSize(width: width2, height: height2)
+        layout2.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: spacing, right: 0)
+        layout2.minimumInteritemSpacing = 0
+        layout2.minimumLineSpacing = 0
+    }
+    
+    
+    // ==============================================================
+    //  Set up Categories
+    // ==============================================================
+    func setUpCategories(){
+        self.categories = [
+            Category(value: [
+                "name": "People",
+                "buttons": [
+                    Button(value: ["name": "Klemen", "color": "CCCCCC" ]),
+                    Button(value: ["name": "Barbara", "color": "CCCCCC" ]),
+                    Button(value: ["name": "Jacob", "color": "CCCCCC" ])
+                ]
+            ]),
+            Category(value: [
+                "name": "Places",
+                "buttons": [
+                    Button(value: ["name": "Home", "color": "CCCCCC" ]),
+                    Button(value: ["name": "Store", "color": "CCCCCC" ]),
+                    Button(value: ["name": "School", "color": "CCCCCC" ]),
+                    Button(value: ["name": "Gym", "color": "CCCCCC" ])
+                ]
+            ])
+        ]
+        
+        self.setUpCategoryButtons(self.categories[0].name)
+        CategoryCollectionView.reloadData()
+    }
+    
+    
+    // ==============================================================
+    //  Category buttons
+    // ==============================================================
+    func setUpCategoryButtons(_ categoryName:String){
+        if let category = self.categories.first(where: { $0.name == categoryName }) {
+            self.buttons = Array(category.buttons)
+            ButtonsCollectionView.reloadData()
+        }
+    }
+    
+    
+    // ==============================================================
+    //  Category clicked
+    // ==============================================================
+    @objc func categoryClicked(_ sender:UIButton) {
+        print(sender.titleLabel?.text ?? "")
+        
+        selectedCategory = sender.titleLabel!.text!
+        setUpCategoryButtons(selectedCategory)
+    }
+    
+    
+    // ==============================================================
+    //  Button clicked
+    // ==============================================================
+    @objc func categoryButtonClicked(_ sender:UIButton){
+        let text = sender.titleLabel!.text ?? ""
+        
+        if(autoSpeak){
+            textField.text = text
+            speechHelper.say(text: text)
+        } else {
+            appendText(text: text)
+        }
+    }
+    
+    
+    // ==============================================================
+    //  Clear clicked
+    // ==============================================================
     @IBAction func ClearButtonClicked(sender: AnyObject) {
         textField.text = ""
     }
     
+    
+    // ==============================================================
+    //  Speak clicked
+    // ==============================================================
     @IBAction func SpeakButtonClicked(sender: AnyObject) {
-        speechHelper.say(textField.text)
+        speechHelper.say(text: textField.text!)
         //textField.text = ""
     }
     
+    
+    // ==============================================================
+    //  Auto clicked
+    // ==============================================================
     @IBAction func buttonAutoClicked(sender: AnyObject) {
         if(autoSpeak){
-            autoButton.setTitle("OFF", forState: UIControlState.Normal)
+            autoButton.setTitle("OFF", for: UIControlState.normal)
             autoSpeak = false
         } else {
-            autoButton.setTitle("ON", forState: UIControlState.Normal)
+            autoButton.setTitle("ON", for: UIControlState.normal)
             autoSpeak = true
         }
-        
     }
     
     
-    
-    @IBAction func buttonDown(sender: AnyObject) {
-        var button:UIButton = sender as! UIButton
-        button.backgroundColor = UIColorFromRGB("64B069")
-        
-    }
-    
-    @IBAction func buttonCategoryDown(sender: AnyObject) {
-        var button:UIButton = sender as! UIButton
-        button.backgroundColor = UIColorFromRGB("37B0A8")
-    }
-    
-    @IBAction func buttonBottomDown(sender: AnyObject) {
-        var button:UIButton = sender as! UIButton
-        button.backgroundColor = UIColorFromRGB("CDD14D")
-    }
-    
-    @IBAction func buttonUpOutside(sender: AnyObject) {
-        var button:UIButton = sender as! UIButton
-        button.backgroundColor = UIColor(red:1.0, green:1.0,blue:1.0,alpha:1.0)
-    }
-    
-    
-    
-    @IBAction func buttonClicked(sender: AnyObject) {
-        var button:UIButton = sender as! UIButton
-        var text = ""
-        for (index,b) in enumerate(buttons){
-            if(button == b){
-                text = emo[index] as String
-            }
-        }
-        button.backgroundColor = UIColor(red:1.0, green:1.0,blue:1.0,alpha:1.0)
-        print(text)
-        if(autoSpeak){
-            textField.text = text
-            speechHelper.say(text)
-        } else {
-            appendText(text)
-        }
-    }
-    
-    @IBAction func buttonBottomClicked(sender: AnyObject) {
-        var button:UIButton = sender as! UIButton
-        var text = ""
-        for (index,b) in enumerate(bottomButtons){
-            if(button == b){
-                text = emoButtom[index] as String
-            }
-        }
-        button.backgroundColor = UIColor(red:1.0, green:1.0,blue:1.0,alpha:1.0)
-        print(text)
-        if(autoSpeak){
-            textField.text = text
-            speechHelper.say(text)
-        } else {
-            appendText(text)
-        }
-    }
-    
-    
-    @IBAction func buttonCategoryClicked(sender: AnyObject) {
-        var button:UIButton = sender as! UIButton
-        button.backgroundColor = UIColor(red:1.0, green:1.0,blue:1.0,alpha:1.0)
-        selected = sender.titleLabel!!.text!
-        switch(sender.titleLabel!!.text!){
-            case "Emotions":
-                setEmotions(EMOTIONS_MAIN, bottomButtonsArray: EMOTIONS_JOINTS)
-                break
-            case "Food":
-                setEmotions(FOOD_MAIN, bottomButtonsArray: FOOD_MAIN_JOINTS)
-                break
-            case "People":
-                setEmotions(FRIENDS_MAIN, bottomButtonsArray: FRIENDS_JOINTS)
-                break
-            case "Places":
-                setEmotions(PLACES_MAIN, bottomButtonsArray: PLACES_JOINTS)
-                break
-            case "Common":
-                setEmotions(COMMON_MAIN, bottomButtonsArray: COMMON_JOINTS)
-                break
-            default:
-                break
-        }
+    // ==============================================================
+    //  Settings clicked
+    // ==============================================================
+    @IBAction func openSettingsClicked(_ sender: Any) {
+        //settingsView.isHidden = false;
     }
     
     
     func appendText(text:String) {
         if(!text.isEmpty){
-            textField.text = textField.text + text + " "
+            textField.text = textField.text! + text + " "
         }
     }
     
-    func setEmotions(emotions:[String], bottomButtonsArray:[String]){
-        emo = emotions
-        emoButtom = bottomButtonsArray
-        setBottomButtonsTitles(bottomButtonsArray)
-        setMainButtons(emo)
-    }
+
     
-    func setBottomButtonsTitles(bottomButtonsArray:[String]){
-        for (index, title) in enumerate(bottomButtonsArray){
-            dispatch_async(dispatch_get_main_queue()) {
-                self.bottomButtons[index].setTitle(title, forState: UIControlState.Normal)
-            }
-        }
-    }
-    
-    func setMainButtons(emotions:[String]){
-        for (index, title) in enumerate(emotions){
-            dispatch_async(dispatch_get_main_queue()) {
-                self.buttons[index].setTitle(title, forState: UIControlState.Normal)
-            }
-        }
-    }
-    
-    func setCategoryButtonsTitles(categoryButtonTitles:[String]){
-        for (index, title) in enumerate(categoryButtonTitles){
-            dispatch_async(dispatch_get_main_queue()) {
-                self.categoryButtons[index].setTitle(title, forState: UIControlState.Normal)
-            }
+    // ==============================================================
+    //  Collection view set count
+    // ==============================================================
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(collectionView == ButtonsCollectionView){
+            return buttons.count
+        } else {
+            return categories.count
         }
     }
     
     
-    func saveToConstants(name:String, position:Int){
-        switch(selected){
-        case "Emotions":
-            EMOTIONS_MAIN[position] = name
-            break
-        case "Food":
-            FOOD_MAIN[position] = name
-            break
-        case "People":
-            FRIENDS_MAIN[position] = name
-            break
-        case "Places":
-            PLACES_MAIN[position] = name
-            break
-        case "Common":
-            COMMON_MAIN[position] = name
-            break
-        default:
-            break
-        }
-    }
-    
-    
-    func UIColorFromRGB(colorCode: String, alpha: Float = 1.0) -> UIColor {
-        var scanner = NSScanner(string:colorCode)
-        var color:UInt32 = 0;
-        scanner.scanHexInt(&color)
+    // ==============================================================
+    //  Collection view set cell
+    // ==============================================================
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let mask = 0x000000FF
-        let r = CGFloat(Float(Int(color >> 16) & mask)/255.0)
-        let g = CGFloat(Float(Int(color >> 8) & mask)/255.0)
-        let b = CGFloat(Float(Int(color) & mask)/255.0)
+        if(collectionView == ButtonsCollectionView){
+            // Set button cell
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "button-cell",
+                for: indexPath
+            ) as! ButtonCell
+            
+            cell.set(self.buttons[indexPath.row])
+            cell.mainButton.addTarget(
+                self,
+                action: #selector(self.categoryButtonClicked(_:)),
+                for: .touchUpInside
+            )
+            
+            return cell
+        } else {
+            // Set category cell
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "category-cell",
+                for: indexPath
+            ) as! CategoryCell
+            
+            cell.set(self.categories[indexPath.row])
+            cell.mainButton.addTarget(
+                self,
+                action: #selector(self.categoryClicked(_:)),
+                for: .touchUpInside
+            )
+            
+            return cell
+        }
         
-        return UIColor(red: r, green: g, blue: b, alpha: CGFloat(alpha))
     }
 }
 
