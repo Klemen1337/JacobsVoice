@@ -10,5 +10,5 @@ import RealmSwift
 
 class Button: Object {
     @objc dynamic var name = ""
-    @objc dynamic var color: String? = "CCCCCC"
+    @objc dynamic var color: String? = "000000"
 }

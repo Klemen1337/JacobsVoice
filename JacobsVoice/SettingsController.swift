@@ -9,7 +9,6 @@
 import UIKit
 
 class SettingsController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
-    @IBOutlet weak var settingsView: UIView!
     @IBOutlet weak var speedSlider: UISlider!
     @IBOutlet weak var sexChanger: UISegmentedControl!
     @IBOutlet weak var languagePicker: UIPickerView!
@@ -19,8 +18,6 @@ class SettingsController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        languagePicker.delegate = self
-        languagePicker.dataSource = self
         speedSlider.value = speechHelper.getSpeed()
         sexChanger.selectedSegmentIndex = speechHelper.getSex() == "Male" ? 0 : 1
     }
@@ -41,10 +38,6 @@ class SettingsController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return LANGUAGES[row]
     }
     
-    // Close settings btn
-    @IBAction func settingsBtnClose(sender: AnyObject) {
-        settingsView.isHidden = true;
-    }
     
     // Speed slider changed
     @IBAction func speedSliderChange(sender: AnyObject) {
@@ -57,4 +50,6 @@ class SettingsController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func sexChanged(sender: AnyObject) {
         speechHelper.setSex(sex: sexChanger.titleForSegment(at: sexChanger.selectedSegmentIndex)!)
     }
+    
+    
 }

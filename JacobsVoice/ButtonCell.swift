@@ -23,7 +23,7 @@ class ButtonCell: UICollectionViewCell {
         
         let color = UIColor(hexString: self.button?.color ?? "cccccc")
         self.mainButton.borderColor = color
-        self.mainButton.setBackgroundColor(color, forState: .highlighted)
+        //self.mainButton.setBackgroundColor(color, forState: .highlighted)
     }
     
     

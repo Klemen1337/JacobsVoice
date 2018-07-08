@@ -8,6 +8,38 @@
 
 import Foundation
 
+
+let PRESETS = [
+    "en": [
+        "Emotions": [
+            "Happy", "Sad",
+            "Angry", "Hungry", "Tired", "Excited",
+            "Bored", "Good", "Scared", "Sleepy"
+        ],
+        "Food": [
+            "Breakfast", "Launch", "Dinner", "Snack",
+            "Pizza", "Pancake", "I'm hungry", "I'm full", "Delicious",
+            "Disgusting", "More please", "Meat", "Vegetables"
+        ],
+        "People": [
+            "Mom", "Dad", "Sister", "Brother",
+            "Gramma", "Grampa", "Uncle", "Aunt",
+            "Teacher"
+        ],
+        "Places": [
+            "Home", "House", "Garage", "School",
+            "Bank","Street", "Hospital", "Library",
+            "Restaurant", "Church"
+        ],
+        "Common": [
+            "Yes", "No", "Hello", "Goodbye",
+            "Please", "Sorry", "Maybe", "I don't know",
+            "Mon", "Dad", "Sister", "Brother"
+        ]
+    ]
+]
+
+
 let CATEGORIES = [
     "Emotions",
     "Food",

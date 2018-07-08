@@ -95,25 +95,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //  Set up Categories
     // ==============================================================
     func setUpCategories(){
-        self.categories = [
-            Category(value: [
-                "name": "People",
-                "buttons": [
-                    Button(value: ["name": "Klemen", "color": "CCCCCC" ]),
-                    Button(value: ["name": "Barbara", "color": "CCCCCC" ]),
-                    Button(value: ["name": "Jacob", "color": "CCCCCC" ])
-                ]
-            ]),
-            Category(value: [
-                "name": "Places",
-                "buttons": [
-                    Button(value: ["name": "Home", "color": "CCCCCC" ]),
-                    Button(value: ["name": "Store", "color": "CCCCCC" ]),
-                    Button(value: ["name": "School", "color": "CCCCCC" ]),
-                    Button(value: ["name": "Gym", "color": "CCCCCC" ])
-                ]
+        for (categoryName, categoryButtons) in PRESETS["en"]! {
+            let cat = Category(value: [
+                "name": categoryName,
+                "buttons": []
             ])
-        ]
+            
+            for name in categoryButtons {
+                cat.buttons.append(Button(value: ["name": name]));
+            }
+            
+            self.categories.append(cat);
+        }
         
         self.setUpCategoryButtons(self.categories[0].name)
         CategoryCollectionView.reloadData()
