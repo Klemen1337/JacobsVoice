@@ -21,6 +21,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     private var buttons: [Button] = []
     private var categories: [Category] = []
     var selectedCategory: String = ""
+    var selectedCategoryIndex: Int = 0
     var speechHelper = SpeechHelper()
     var databaseHelper = DatabaseHelper()
     var autoSpeak = false;
@@ -114,10 +115,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     // ==============================================================
-    //  Category buttons
+    //  Setup category buttons
     // ==============================================================
     func setUpCategoryButtons(_ categoryName:String){
         if let category = self.categories.first(where: { $0.name == categoryName }) {
+            self.selectedCategoryIndex = self.categories.index(of: category) ?? 0
             self.buttons = Array(category.buttons)
             ButtonsCollectionView.reloadData()
         }
@@ -138,7 +140,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // ==============================================================
     //  Button clicked
     // ==============================================================
-    @objc func categoryButtonClicked(_ sender:UIButton){
+    @objc func categoryButtonClicked(_ sender: UIButton){
         let text = sender.titleLabel!.text ?? ""
         
         if(autoSpeak){
@@ -147,6 +149,56 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         } else {
             appendText(text: text)
         }
+    }
+    
+    
+    // ==============================================================
+    //  Button add clicked
+    // ==============================================================
+    @objc func buttonAddClicked(_ sender: UIButton){
+        let alert = UIAlertController(title: "Button", message: "", preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            let textField = alert.textFields![0]
+            let text = textField.text ?? ""
+            
+            let btn = Button(value: ["name": text])
+            self.categories[self.selectedCategoryIndex].buttons.append(btn)
+            self.buttons.append(btn)
+            self.ButtonsCollectionView.reloadData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    // ==============================================================
+    //  Category add clicked
+    // ==============================================================
+    @objc func categoryAddClicked(_ sender: UIButton){
+        let alert = UIAlertController(title: "Category", message: "", preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            let textField = alert.textFields![0]
+            let text = textField.text ?? ""
+            
+            self.categories.append(Category(value: ["name": text, "buttons": []]))
+            self.CategoryCollectionView.reloadData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     
@@ -202,9 +254,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // ==============================================================
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(collectionView == ButtonsCollectionView){
-            return buttons.count
+            return buttons.count + 1
         } else {
-            return categories.count
+            return categories.count + 1
         }
     }
     
@@ -215,37 +267,151 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if(collectionView == ButtonsCollectionView){
-            // Set button cell
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "button-cell",
-                for: indexPath
-            ) as! ButtonCell
-            
-            cell.set(self.buttons[indexPath.row])
-            cell.mainButton.addTarget(
-                self,
-                action: #selector(self.categoryButtonClicked(_:)),
-                for: .touchUpInside
-            )
-            
-            return cell
+            // Set button cells
+            if(buttons.count != indexPath.row) {
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "button-cell",
+                    for: indexPath
+                ) as! ButtonCell
+                
+                cell.set(self.buttons[indexPath.row])
+                cell.mainButton.addTarget(
+                    self,
+                    action: #selector(self.categoryButtonClicked(_:)),
+                    for: .touchUpInside
+                )
+                
+                let longPress = UILongPressGestureRecognizer(
+                    target: self,
+                    action: #selector(self.buttonLongPress(_:))
+                )
+                longPress.minimumPressDuration = 2.0
+                cell.mainButton.addGestureRecognizer(longPress)
+                
+                return cell
+            } else {
+                // Add button
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "button-add-cell",
+                    for: indexPath
+                ) as! ButtonAddCell
+                
+                cell.mainButton.addTarget(
+                    self,
+                    action: #selector(self.buttonAddClicked(_:)),
+                    for: .touchUpInside
+                )
+                
+                return cell
+            }
         } else {
             // Set category cell
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "category-cell",
-                for: indexPath
-            ) as! CategoryCell
-            
-            cell.set(self.categories[indexPath.row])
-            cell.mainButton.addTarget(
-                self,
-                action: #selector(self.categoryClicked(_:)),
-                for: .touchUpInside
-            )
-            
-            return cell
+            if(categories.count != indexPath.row) {
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "category-cell",
+                    for: indexPath
+                ) as! CategoryCell
+                
+                cell.set(self.categories[indexPath.row])
+                cell.mainButton.addTarget(
+                    self,
+                    action: #selector(self.categoryClicked(_:)),
+                    for: .touchUpInside
+                )
+                
+                let longPress = UILongPressGestureRecognizer(
+                    target: self,
+                    action: #selector(self.categoryLongPress(_:))
+                )
+                longPress.minimumPressDuration = 2.0
+                cell.mainButton.addGestureRecognizer(longPress)
+                
+                return cell
+            } else {
+                // Add button
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "category-add-cell",
+                    for: indexPath
+                ) as! CategoryAddCell
+                
+                cell.mainButton.addTarget(
+                    self,
+                    action: #selector(self.categoryAddClicked(_:)),
+                    for: .touchUpInside
+                )
+                
+                return cell
+            }
         }
-        
     }
+    
+    
+    // ==============================================================
+    //  Category edit clicked
+    // ==============================================================
+    @objc func categoryLongPress(_ sender: UILongPressGestureRecognizer) {
+        //print("LONGPRESS:", sender)
+        if sender.state != .began { return }
+        
+        let p = sender.location(in: self.CategoryCollectionView)
+        let indexPath = self.CategoryCollectionView.indexPathForItem(at: p)
+        
+        if let index = indexPath {
+            let cell = self.CategoryCollectionView.cellForItem(at: index) as! CategoryCell
+            let alert = UIAlertController(title: "Category", message: "", preferredStyle: .alert)
+            
+            alert.addTextField { (textField) in
+                textField.text = cell.category?.name ?? ""
+            }
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                let textField = alert.textFields![0]
+                let text = textField.text ?? ""
+                cell.category?.name = text
+                cell.set(cell.category!)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            print("Could not find index path")
+        }
+    }
+    
+    
+    // ==============================================================
+    //  Button edit clicked
+    // ==============================================================
+    @objc func buttonLongPress(_ sender: UILongPressGestureRecognizer) {
+        if sender.state != .began { return }
+        
+        let p = sender.location(in: self.ButtonsCollectionView)
+        let indexPath = self.ButtonsCollectionView.indexPathForItem(at: p)
+        
+        if let index = indexPath {
+            let cell = self.ButtonsCollectionView.cellForItem(at: index) as! ButtonCell
+            let alert = UIAlertController(title: "Button", message: "", preferredStyle: .alert)
+            
+            alert.addTextField { (textField) in
+                textField.text = cell.button?.name ?? ""
+            }
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                let textField = alert.textFields![0]
+                let text = textField.text ?? ""
+                cell.button?.name = text
+                cell.set(cell.button!)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            print("Could not find index path")
+        }
+    }
+    
+    
 }
 

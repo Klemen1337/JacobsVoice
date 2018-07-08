@@ -17,6 +17,8 @@
 		C415E33220EACB61007683BE /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C415E33120EACB61007683BE /* UIColorExtension.swift */; };
 		C415E33420EACC5C007683BE /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C415E33320EACC5C007683BE /* CategoryModel.swift */; };
 		C415E33620EACEBA007683BE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C415E33520EACEBA007683BE /* UIButtonExtension.swift */; };
+		C43A649020F289060007A8BF /* ButtonAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43A648F20F289060007A8BF /* ButtonAddCell.swift */; };
+		C43A649220F295230007A8BF /* CategoryAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43A649120F295230007A8BF /* CategoryAddCell.swift */; };
 		C4B5C45B1B07F6A900732A2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5C45A1B07F6A900732A2A /* AppDelegate.swift */; };
 		C4B5C45D1B07F6A900732A2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5C45C1B07F6A900732A2A /* ViewController.swift */; };
 		C4B5C4601B07F6A900732A2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4B5C45E1B07F6A900732A2A /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		C415E33120EACB61007683BE /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		C415E33320EACC5C007683BE /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		C415E33520EACEBA007683BE /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		C43A648F20F289060007A8BF /* ButtonAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAddCell.swift; sourceTree = "<group>"; };
+		C43A649120F295230007A8BF /* CategoryAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAddCell.swift; sourceTree = "<group>"; };
 		C4B5C4551B07F6A900732A2A /* JacobsVoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JacobsVoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B5C4591B07F6A900732A2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4B5C45A1B07F6A900732A2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,7 +148,9 @@
 			isa = PBXGroup;
 			children = (
 				C415E32020E6E30C007683BE /* ButtonCell.swift */,
+				C43A648F20F289060007A8BF /* ButtonAddCell.swift */,
 				C415E32320E6FB56007683BE /* CategoryCell.swift */,
+				C43A649120F295230007A8BF /* CategoryAddCell.swift */,
 				C4B5C45C1B07F6A900732A2A /* ViewController.swift */,
 				C415E32620E78D94007683BE /* SettingsController.swift */,
 			);
@@ -389,11 +395,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C415E32720E78D94007683BE /* SettingsController.swift in Sources */,
+				C43A649020F289060007A8BF /* ButtonAddCell.swift in Sources */,
 				C415E33420EACC5C007683BE /* CategoryModel.swift in Sources */,
 				C4B5C45D1B07F6A900732A2A /* ViewController.swift in Sources */,
 				C4B5C45B1B07F6A900732A2A /* AppDelegate.swift in Sources */,
 				C4B5C4821B08096D00732A2A /* SpeechHelper.swift in Sources */,
 				C415E32420E6FB56007683BE /* CategoryCell.swift in Sources */,
+				C43A649220F295230007A8BF /* CategoryAddCell.swift in Sources */,
 				C4F1ABBA1C7A2489000D5773 /* DatabaseHelper.swift in Sources */,
 				C4C0AB4A1B0845F400AB7EE0 /* Constants.swift in Sources */,
 				C415E33620EACEBA007683BE /* UIButtonExtension.swift in Sources */,
