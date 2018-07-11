@@ -22,8 +22,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     private var categories: [Category] = []
     var selectedCategory: String = ""
     var selectedCategoryIndex: Int = 0
-    var speechHelper = SpeechHelper()
-    var databaseHelper = DatabaseHelper()
     var autoSpeak = false;
     
 
@@ -41,15 +39,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // ==============================================================
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //let realm = try! Realm()
-        //try! realm.write() {
-        //    let category = realm.create(Category.self, value: ["name": "Category 1"])
-        //    realm.create(Button.self, value: ["name": "This is a test", "category": category])
-        //}
-        //
-        //let tanDogs = realm.objects(Button.self)
-        //print(tanDogs)
 
         // Setup collection views
         self.setCollectionViewCellSize()
@@ -57,8 +46,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Setup categories
         self.setUpCategories()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(setCollectionViewCellSize), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-
+        // Add device orentation change observer
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(setCollectionViewCellSize),
+            name: NSNotification.Name.UIDeviceOrientationDidChange,
+            object: nil
+        )
     }
     
     
@@ -96,21 +90,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //  Set up Categories
     // ==============================================================
     func setUpCategories(){
-        for (categoryName, categoryButtons) in PRESETS["en"]! {
-            let cat = Category(value: [
-                "name": categoryName,
-                "buttons": []
-            ])
-            
-            for name in categoryButtons {
-                cat.buttons.append(Button(value: ["name": name]));
-            }
-            
-            self.categories.append(cat);
-        }
+        self.categories = databaseHelper.getCategories()
         
-        self.setUpCategoryButtons(self.categories[0].name)
-        CategoryCollectionView.reloadData()
+        if(self.categories.count == 0){
+            databaseHelper.setup()
+            setUpCategories()
+        } else {
+            self.setUpCategoryButtons(self.categories[0].name)
+            CategoryCollectionView.reloadData()
+        }
     }
     
     

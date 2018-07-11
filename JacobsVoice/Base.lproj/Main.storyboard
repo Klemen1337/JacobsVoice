@@ -29,13 +29,13 @@
                                                 <rect key="frame" x="15" y="15" width="751" height="135"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="11" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4LW-qP-EPt" userLabel="Input field">
-                                                        <rect key="frame" x="15" y="5" width="686" height="125"/>
+                                                        <rect key="frame" x="15" y="5" width="681" height="125"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="yes" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dh4-Dp-MNF" userLabel="Clear" customClass="DesignableButton" customModule="JacobsVoice" customModuleProvider="target">
-                                                        <rect key="frame" x="706" y="5" width="40" height="125"/>
+                                                        <rect key="frame" x="701" y="10" width="40" height="115"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="kvC-at-XT2"/>
                                                         </constraints>
@@ -65,11 +65,11 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="dh4-Dp-MNF" firstAttribute="leading" secondItem="4LW-qP-EPt" secondAttribute="trailing" constant="5" id="0oA-eV-BtH"/>
-                                                    <constraint firstAttribute="trailing" secondItem="dh4-Dp-MNF" secondAttribute="trailing" constant="5" id="ZFp-dg-N1I"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dh4-Dp-MNF" secondAttribute="trailing" constant="10" id="ZFp-dg-N1I"/>
                                                     <constraint firstItem="4LW-qP-EPt" firstAttribute="top" secondItem="sgp-if-pg0" secondAttribute="top" constant="5" id="dmA-jh-Z3V"/>
                                                     <constraint firstItem="4LW-qP-EPt" firstAttribute="leading" secondItem="sgp-if-pg0" secondAttribute="leading" constant="15" id="eHg-bj-lU4"/>
-                                                    <constraint firstAttribute="bottom" secondItem="dh4-Dp-MNF" secondAttribute="bottom" constant="5" id="jPe-Bg-pRo"/>
-                                                    <constraint firstItem="dh4-Dp-MNF" firstAttribute="top" secondItem="sgp-if-pg0" secondAttribute="top" constant="5" id="thE-gF-NYQ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dh4-Dp-MNF" secondAttribute="bottom" constant="10" id="jPe-Bg-pRo"/>
+                                                    <constraint firstItem="dh4-Dp-MNF" firstAttribute="top" secondItem="sgp-if-pg0" secondAttribute="top" constant="10" id="thE-gF-NYQ"/>
                                                     <constraint firstAttribute="bottom" secondItem="4LW-qP-EPt" secondAttribute="bottom" constant="5" id="z4P-VO-OBQ"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -524,7 +524,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dy4-Wu-mAl">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.25" maxValue="0.65000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="dy4-Wu-mAl">
                                         <rect key="frame" x="13" y="104" width="349" height="31"/>
                                         <connections>
                                             <action selector="speedSliderChangeWithSender:" destination="odb-K3-ABz" eventType="valueChanged" id="Zr1-wt-LmE"/>
@@ -537,7 +537,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="r4X-jS-PDO">
-                                        <rect key="frame" x="15" y="189.5" width="345" height="29"/>
+                                        <rect key="frame" x="15" y="188.5" width="345" height="29"/>
                                         <segments>
                                             <segment title="Male"/>
                                             <segment title="Female"/>
@@ -568,13 +568,13 @@
                                             <outlet property="delegate" destination="odb-K3-ABz" id="Ri2-v4-dwv"/>
                                         </connections>
                                     </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZI-ld-1WO">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZI-ld-1WO">
                                         <rect key="frame" x="15" y="428" width="345" height="20.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N5S-ih-e99">
+                                    <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N5S-ih-e99">
                                         <rect key="frame" x="15" y="453.5" width="51" height="31"/>
                                     </switch>
                                 </subviews>
@@ -625,7 +625,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nnC-Sb-CeO" firstAttribute="leading" secondItem="N4H-xe-x2b" secondAttribute="leading" id="AQM-cN-EWc"/>
-                            <constraint firstAttribute="bottom" secondItem="nnC-Sb-CeO" secondAttribute="bottom" id="D8j-gY-CFs"/>
+                            <constraint firstItem="nnC-Sb-CeO" firstAttribute="bottom" secondItem="N4H-xe-x2b" secondAttribute="bottom" id="C0h-9O-G1e"/>
                             <constraint firstAttribute="trailing" secondItem="nnC-Sb-CeO" secondAttribute="trailing" id="vTM-Rz-qJr"/>
                             <constraint firstItem="nnC-Sb-CeO" firstAttribute="top" secondItem="9at-KS-qWs" secondAttribute="top" id="ySC-jF-9UP"/>
                         </constraints>
@@ -639,7 +639,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tY4-Lo-gaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968.55468749999989" y="292.96875"/>
+            <point key="canvasLocation" x="1473" y="292"/>
         </scene>
     </scenes>
     <resources>

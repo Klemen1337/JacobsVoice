@@ -9,17 +9,20 @@
 import UIKit
 import RealmSwift
 
+
+var speechHelper = SpeechHelper()
+var databaseHelper = DatabaseHelper()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
     private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         // Display relam file location
         print("Realm file URL:", Realm.Configuration.defaultConfiguration.fileURL as Any)
+        
         
         return true
     }

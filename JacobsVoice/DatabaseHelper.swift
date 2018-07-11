@@ -8,65 +8,55 @@
 
 import UIKit
 import Foundation
-import CoreData
+import RealmSwift
 
 public class DatabaseHelper {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func setup(){
-        if(getCategories().count == 0){
-            addCategory("Emotions")
-            for text in EMOTIONS_MAIN{
-                addButtonToCategory(text, category:"Emotions")
+        for (categoryName, categoryButtons) in PRESETS["en"]! {
+            let cat = Category(value: [
+                "name": categoryName,
+                "buttons": []
+            ])
+            
+            for name in categoryButtons {
+                cat.buttons.append(Button(value: ["name": name]));
             }
             
             
-            addCategory("Food")
-            for text in FOOD_MAIN{
-                addButtonToCategory(text, category:"Food")
-            }
-            
-            
-            addCategory("People")
-            for text in PEOPLE_MAIN{
-                addButtonToCategory(text, category:"People")
-            }
-            
-            
-            addCategory("Places")
-            for text in PLACES_MAIN{
-                addButtonToCategory(text, category:"Places")
-            }
-            
-            
-            addCategory("Common")
-            for text in COMMON_MAIN{
-                addButtonToCategory(text, category:"Common")
-            }
+            self.addCategory(cat)
+            //self.categories.append(cat);
+        }
+        
+        //self.setUpCategoryButtons(self.categories[0].name)
+    }
+    
+    
+    func getCategories() -> [Category] {
+        let realm = try! Realm()
+        return Array(realm.objects(Category.self))
+    }
+    
+    
+    func addCategory(_ category: Category){
+        let realm = try! Realm()
+        try! realm.write() {
+            realm.add(category)
         }
     }
     
     
-    func getCategories() -> [Any] {
-        return []
-    }
-    
-    
-    func addCategory(_ name:String){
-
-
-    }
-    
-    
-    
-    func getButtonsFromCategory(_ category:String) -> [Any] {
-        return []
-    }
-    
-    
-    func addButtonToCategory(_ name:String, category:String){
-
+    func updateCategoryName(_ category: Category, name: String){
         
+    }
+    
+    
+    func addButtonToCategory(_ button:Button, category:Category){
+        let realm = try! Realm()
+        try! realm.write() {
+            
+        }
     }
 
 }
