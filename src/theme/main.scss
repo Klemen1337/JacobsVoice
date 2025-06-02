@@ -1,0 +1,55 @@
+h1 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+input {
+  font-size: 2em;
+  padding: 1rem;
+  background: var(--button-bg);
+  color: var(--font-color);
+  border: 1px solid var(--button-border);
+}
+
+select {
+  border-radius: 0.5rem;
+  color: var(--font-color);
+  background: var(--button-bg);
+  border: 1px solid var(--button-border);
+  font-size: 1.4em;
+  padding: 1rem;
+}
+
+button {
+  border-radius: 0.5rem;
+  color: var(--font-color);
+  background: var(--button-bg);
+  border: 1px solid var(--button-border);
+  font-size: 1.4em;
+  font-weight: bold;
+  padding: 1rem;
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  ion-icon {
+    height: 24px;
+    width: 24px;
+    font-size: 64px;
+  }
+  
+  &:active {
+    background: var(--base-color);
+    color: white;
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    outline: 3px solid var(--base-color);
+    outline-offset: -3px;
+  }
+}

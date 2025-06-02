@@ -1,0 +1,15 @@
+{
+  "buttons": {
+    "settings": "Nastavitve",
+    "play": "Predvajaj"
+  },
+  "settings": {
+    "title": "Nastavitve",
+    "language": {
+      "title": "Jezik"
+    },
+    "voice": {
+      "title": "Glas"
+    }
+  }
+}

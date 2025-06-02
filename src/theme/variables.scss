@@ -1,0 +1,16 @@
+/* For information on how to create your own theme, please see:
+http://ionicframework.com/docs/theming/ */
+
+:root {
+  --base-color: blue;
+  --font-color: black;
+  --bg-color: #eceff1;
+  --button-bg: rgba(255, 255, 255, 0.753);
+  --button-border: #cbd4d9;
+}
+
+html,body {
+  background: var(--bg-color);
+  color: var(--font-color);
+  font-size: 14px;
+}
