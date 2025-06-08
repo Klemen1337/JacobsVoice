@@ -33,6 +33,7 @@
 </template>
 
 <script setup lang="ts">
+import { IonPage, IonContent } from "@ionic/vue";
 import SettingsPanel from "@/components/SettingsPanel.vue";
 import ButtonEdit from "@/components/ButtonEdit.vue";
 import SpeakButton from "@/components/SpeakButton.vue";

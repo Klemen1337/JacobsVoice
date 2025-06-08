@@ -20,6 +20,9 @@
     },
     "save": {
       "text": "Save"
+    },
+    "delete": {
+      "text": "Delete"
     }
   },
   "settings": {

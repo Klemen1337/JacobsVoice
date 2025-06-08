@@ -25,6 +25,7 @@
 </template>
 
 <script setup lang="ts">
+import { IonIcon } from "@ionic/vue";
 import { playOutline, settingsOutline, createOutline } from 'ionicons/icons';
 import { useGeneralStore } from '@/store';
 const store = useGeneralStore()

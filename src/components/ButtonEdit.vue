@@ -37,6 +37,8 @@
           <input v-model="button.image" type="text" />
         </div>
 
+        <button class="btn" @click="removeButton()">{{ $t("buttons.delete.text") }}</button>
+
         <!-- <pre>{{ button }}</pre> -->
       </div>
 
@@ -54,8 +56,7 @@ import { ref, watch, Ref } from 'vue';
 const store = useGeneralStore();
 import { Button } from '@/models';
 
-
-const button: Ref<Button> = ref({ id: "", name: "" })
+const button: Ref<Button | null> = ref(null)
 
 watch(() => store.editButton, () => {
   button.value = JSON.parse(JSON.stringify(store.editButton))
@@ -65,8 +66,12 @@ function cancel () {
   store.setEditButton(null)
 }
 
+function removeButton () {
+  store.removeButton(button.value!)
+}
+
 function submit () {
-  store.updateButton(button.value)
+  store.updateButton(button.value!)
   store.setEditButton(null)
 }
 </script>

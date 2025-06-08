@@ -16,7 +16,7 @@ Text to speech dashboard for iOS and Android tablets
 - Create button presets for different languages
 - Add button ✅
 - Edit button ✅
-- Remove button
+- Remove button ✅
 - Button image ✅
 - Button color ✅
 - Button background ✅

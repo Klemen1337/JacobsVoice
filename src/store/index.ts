@@ -1,5 +1,5 @@
 // https://github.com/capacitor-community/text-to-speech
-import { TextToSpeech } from '@capacitor-community/text-to-speech';
+import { TextToSpeech, TTSOptions } from '@capacitor-community/text-to-speech';
 import { Ref, ref } from 'vue'
 import { defineStore } from 'pinia'
 
@@ -78,6 +78,15 @@ export const useGeneralStore = defineStore('general', () => {
       buttons.value[buttonIndex] = button
     }
     setButtons()
+  }
+
+  function removeButton (button: Button) {
+    const buttonIndex = buttons.value.findIndex(b => b.id == button.id);
+    if (buttonIndex) {
+      console.log("[STORE] Remove button:", buttonIndex);
+      buttons.value.splice(buttonIndex, 1);
+      setButtons()
+    }
   }
 
   async function setButtons () {
@@ -167,7 +176,7 @@ export const useGeneralStore = defineStore('general', () => {
   const textToSpeak = ref("")
   const speak = async (text: string) => {
     if (!text) return;
-    const options = {
+    const options: TTSOptions = {
       text: text,
       lang: voice.value,
       rate: Number(rate.value),
@@ -188,6 +197,7 @@ export const useGeneralStore = defineStore('general', () => {
     init,
     buttons,
     addButton,
+    removeButton,
     buttonsColumns,
     setButtonsColumns,
     buttonsRows,
