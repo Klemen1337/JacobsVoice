@@ -164,6 +164,7 @@ export const useGeneralStore = defineStore('general', () => {
     rate.value = value
   }
 
+  const textToSpeak = ref("")
   const speak = async (text: string) => {
     if (!text) return;
     const options = {
@@ -207,6 +208,7 @@ export const useGeneralStore = defineStore('general', () => {
     toggleEditing,
     editButton,
     setEditButton,
-    updateButton
+    updateButton,
+    textToSpeak
    }
 })

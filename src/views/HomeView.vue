@@ -2,54 +2,20 @@
   <ion-page>
     <ion-content :fullscreen="true" scroll-y="false">
       <div class="home-view" :class="{ 'in-edit-mode': store.isEditing }">
-        <div class="top-row">
-          <!-- Input -->
-          <input v-model="text" :placeholder="$t('input.speakText.placeholder')" />
+        <top-row></top-row>
 
-          <!-- Edit -->
-          <button type="button" :class="{ 'active': store.isEditing }" @click="store.toggleEditing()">
-            <ion-icon :icon="createOutline"></ion-icon>
-            <span v-if="!store.isEditing">{{ $t('buttons.edit.start-edit') }}</span>
-            <span v-else>{{ $t('buttons.edit.stop-text') }}</span>
-          </button>
-
-          <!-- Settings -->
-          <button type="button" @click="store.setSidebarOpen(true)">
-            <ion-icon :icon="settingsOutline"></ion-icon>
-            <span>{{ $t('buttons.settings') }}</span>
-          </button>
-
-          <!-- Play -->
-          <button type="button" @click="speak()">
-            <ion-icon :icon="playOutline"></ion-icon>
-            <span>{{ $t('buttons.play') }}</span>
-          </button>
-        </div>
-
-        <div class="grid" :style="{ '--button-columns': store.buttonsColumns + '', '--button-rows': store.buttonsRows }">
-          <button 
-            class="btn speak-button"
-            type="button"
-            :style="{ '--button-bg': button.backgroundColor, '--button-color': button.color }"
+        <div 
+          class="grid" 
+          :style="{ '--button-columns': store.buttonsColumns + '', '--button-rows': store.buttonsRows }"
+        >
+          <!-- Button -->
+          <speak-button
             v-for="button in store.buttons" 
             :key="button.id" 
-            @click="handleButtonClick(button)"
-          >
-            <img v-if="button.image" :src="button.image" />
-            <span v-if="button.text">{{ button.text }}</span>
-            <span v-else class="no-text">{{ $t('buttons.no-text') }}</span>
-            <span v-if="store.isEditing" class="no-text">{{ $t('buttons.click-to-edit') }}</span>
+            :button="button"
+          ></speak-button>
 
-            <!-- <div v-if="store.isEditing" class="button-actions">
-              <button class="btn btn-sm" type="button">
-                <ion-icon :icon="createOutline"></ion-icon>
-                <span>{{ $t('buttons.actions.edit.text') }}</span>
-              </button>
-              <button class="btn btn-sm" type="button">Delete</button>
-              <button class="btn btn-sm" type="button">Move</button>
-            </div> -->
-          </button>
-
+          <!-- Add button -->
           <button 
             v-if="store.isEditing"
             class="create-button"
@@ -67,33 +33,12 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import { IonPage, IonContent, IonIcon } from '@ionic/vue';
-import { playOutline, settingsOutline, createOutline } from 'ionicons/icons';
 import SettingsPanel from "@/components/SettingsPanel.vue";
 import ButtonEdit from "@/components/ButtonEdit.vue";
-import { Button } from '@/models';
+import SpeakButton from "@/components/SpeakButton.vue";
+import TopRow from "@/components/TopRow.vue";
 import { useGeneralStore } from '@/store';
 const store = useGeneralStore()
-const text = ref("")
-
-onMounted (async () => {
-  await store.init()
-})
-
-async function handleButtonClick(button: Button) {
-  if (store.isEditing) {
-    store.setEditButton(button)
-    return;
-  }
-
-  text.value = button.text;
-  return speak()
-}
-
-async function speak () {
-  return await store.speak(text.value);
-}
 </script>
 
 
@@ -110,17 +55,6 @@ async function speak () {
   // background-image: url("https://drscdn.500px.org/photo/51336416/q%3D90_m%3D2048/v2?sig=7f31569b5853520d3d62ec8f4a02b359fed58aba377882105802edd64c37ce90");
   background-position: center center;
   background-size: cover;
-}
-
-.top-row {
-  display: flex;
-  padding-bottom: 0;
-  gap: 1rem;
-  flex-shrink: 0;
-
-  input {
-    flex-grow: 1;
-  }
 }
 
 .in-edit-mode {
@@ -173,15 +107,6 @@ async function speak () {
   border-style: dashed;
   font-weight: normal;
   font-style: italic;
-}
-
-.speak-button {
-  position: relative;
-  flex-direction: column;
-
-  img {
-    height: 50px;
-  }
 }
 
 .grid {

@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
 import { IonicVue } from '@ionic/vue';
+import { useGeneralStore } from './store';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -36,6 +37,9 @@ app.use(router);
 app.use(pinia);
 app.use(i18n);
 
-router.isReady().then(() => {
+router.isReady().then(async () => {
+  const store = useGeneralStore()
+  await store.init()
+
   app.mount('#app');
 });
