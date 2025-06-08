@@ -1,7 +1,26 @@
 {
   "buttons": {
     "play": "Play",
-    "settings": "Settings"
+    "settings": "Settings",
+    "edit": {
+      "text": "Edit",
+      "stop-text": "End edit",
+      "start-edit": "Edit"
+    },
+    "no-text": "No text",
+    "new-button": "Add new button",
+    "actions": {
+      "edit": {
+        "text": "Edit"
+      }
+    },
+    "click-to-edit": "Click to edit",
+    "cancel": {
+      "text": "Cancel"
+    },
+    "save": {
+      "text": "Save"
+    }
   },
   "settings": {
     "title": "Settings",
@@ -16,6 +35,30 @@
     },
     "rate": {
       "title": "Rate"
+    },
+    "buttonsColumns": {
+      "title": "Number of columns"
+    },
+    "buttonsRows": {
+      "title": "Number of rows"
+    }
+  },
+  "input": {
+    "speakText": {
+      "placeholder": "Type text or press a button..."
+    }
+  },
+  "modals": {
+    "buttonEdit": {
+      "name": {
+        "title": "Text"
+      },
+      "id": {
+        "title": "ID"
+      },
+      "header": {
+        "title": "Edit button"
+      }
     }
   }
 }

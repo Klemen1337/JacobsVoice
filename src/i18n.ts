@@ -14,7 +14,10 @@ const i18n = createI18n({
   locale: 'sl', // Set default locale
   fallbackLocale: 'en', // Fallback when a translation is missing
   messages,
-  globalInjection: true, // Allows using $t in templates without needing to import useI18n
+  globalInjection: true, // Allows using $t in templates without needing to import useI18n,
+  missingWarn: false, 
+  fallbackWarn: false,
+  silentTranslationWarn: true,
 })
 
 export default i18n

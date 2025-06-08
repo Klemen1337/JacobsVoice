@@ -1,7 +1,11 @@
 {
   "buttons": {
     "settings": "Nastavitve",
-    "play": "Predvajaj"
+    "play": "Predvajaj",
+    "edit": {
+      "start-edit": "Uredi",
+      "stop-text": "Končaj urejanje"
+    }
   },
   "settings": {
     "title": "Nastavitve",

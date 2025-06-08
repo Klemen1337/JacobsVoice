@@ -20,7 +20,6 @@ import '@ionic/vue/css/flex-utils.css';
 import '@ionic/vue/css/display.css';
 
 /* Theme variables */
-import './theme/variables.scss';
 import './theme/main.scss';
 
 // Pinia

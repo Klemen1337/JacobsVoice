@@ -1,3 +1,6 @@
+@import "./variables.scss";
+@import "./modal.scss";
+
 h1 {
   margin: 0;
   font-weight: bold;
@@ -21,6 +24,7 @@ select {
   padding: 1rem;
 }
 
+.btn,
 button {
   border-radius: 0.5rem;
   color: var(--font-color);
@@ -42,7 +46,7 @@ button {
     font-size: 64px;
   }
   
-  &:active {
+  &.active, &:active {
     background: var(--base-color);
     color: white;
     transform: scale(0.95);
@@ -51,5 +55,32 @@ button {
   &:focus {
     outline: 3px solid var(--base-color);
     outline-offset: -3px;
+  }
+
+  &.hidden {
+    opacity: 0;
+    cursor: default;
+  }
+
+  .no-text {
+    font-weight: normal;
+    font-style: italic;
+    opacity: 0.5;
+  }
+
+  &.btn-sm {
+    font-size: 1em;
+    padding: 0.5rem;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  label {
+    margin-bottom: 2px;
   }
 }
