@@ -13,10 +13,11 @@ input {
   background: var(--button-bg);
   color: var(--font-color);
   border: 1px solid var(--button-border);
+  border-radius: var(--border-radius);
 }
 
 select {
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius);
   color: var(--font-color);
   background: var(--button-bg);
   border: 1px solid var(--button-border);
@@ -26,8 +27,8 @@ select {
 
 .btn,
 button {
-  border-radius: 0.5rem;
-  color: var(--font-color);
+  border-radius: var(--border-radius);
+  color: var(--button-color);
   background: var(--button-bg);
   border: 1px solid var(--button-border);
   font-size: 1.4em;

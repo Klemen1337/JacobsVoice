@@ -15,8 +15,26 @@
 
         <!-- Name -->
         <div class="form-group">
-          <label>{{ $t("modals.buttonEdit.name.title") }}</label>
-          <input v-model="button.name" type="text" />
+          <label>{{ $t("modals.buttonEdit.text.title") }}</label>
+          <input v-model="button.text" type="text" />
+        </div>
+
+        <!-- Background color -->
+        <div class="form-group">
+          <label>{{ $t("modals.buttonEdit.backgroundColor.title") }}</label>
+          <input v-model="button.backgroundColor" type="color" />
+        </div>
+
+        <!-- Color -->
+        <div class="form-group">
+          <label>{{ $t("modals.buttonEdit.color.title") }}</label>
+          <input v-model="button.color" type="color" />
+        </div>
+
+        <!-- Image -->
+        <div class="form-group">
+          <label>{{ $t("modals.buttonEdit.image.title") }}</label>
+          <input v-model="button.image" type="text" />
         </div>
 
         <!-- <pre>{{ button }}</pre> -->

@@ -24,7 +24,7 @@
         <div class="form-group">
           <label>{{ $t("settings.language.title") }} ({{ store.language }})</label>
           <select v-model="store.language" @change="store.setLanguage($event.target?.value)">
-            <option v-for="v in store.languages" :key="v.id" :value="v.id">{{ v.name }} ({{ v.id }})</option>
+            <option v-for="v in store.languages" :key="v.id" :value="v.id">{{ v.text }} ({{ v.id }})</option>
           </select>
           <!-- <ion-select interface="action-sheet" label="Voice" placeholder="Select preferred voice">
             <ion-select-option v-for="v in voices" :key="v.lang" :value="v">{{ v.name }} ({{ v.lang }})</ion-select-option>
@@ -113,8 +113,6 @@ onMounted(async () => {
     background: white;
     border: 1px solid var(--border-color);
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
-
-   
   }
 }
 

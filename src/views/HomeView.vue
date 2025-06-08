@@ -28,12 +28,14 @@
 
         <div class="grid" :style="{ '--button-columns': store.buttonsColumns + '', '--button-rows': store.buttonsRows }">
           <button 
-            class="btn"
+            class="btn speak-button"
             type="button"
+            :style="{ '--button-bg': button.backgroundColor, '--button-color': button.color }"
             v-for="button in store.buttons" 
             :key="button.id" 
             @click="handleButtonClick(button)"
           >
+            <img v-if="button.image" :src="button.image" />
             <span v-if="button.text">{{ button.text }}</span>
             <span v-else class="no-text">{{ $t('buttons.no-text') }}</span>
             <span v-if="store.isEditing" class="no-text">{{ $t('buttons.click-to-edit') }}</span>
@@ -49,9 +51,9 @@
           </button>
 
           <button 
+            v-if="store.isEditing"
             class="create-button"
             type="button" 
-            :class="{ 'hidden': !store.isEditing }"
             @click="store.addButton()"
           >
             {{ $t('buttons.new-button') }}
@@ -114,6 +116,7 @@ async function speak () {
   display: flex;
   padding-bottom: 0;
   gap: 1rem;
+  flex-shrink: 0;
 
   input {
     flex-grow: 1;
@@ -121,11 +124,47 @@ async function speak () {
 }
 
 .in-edit-mode {
-  button {
+  .speak-button {
+     &:nth-child(odd) {
+      animation: 0.25s jiggle1 infinite;
+      transform-origin: 50% 10%;
+    }
+
+    &:nth-child(even) {
+      animation: 0.25s jiggle2;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      transform-origin: 30% 5%;
+    }
+
     &.hidden {
       opacity: 1;
       cursor: pointer;
     }
+  }
+}
+
+@keyframes jiggle1 {
+  0% {
+    transform: rotate(-0.5deg);
+    animation-timing-function: ease-in;
+  }
+
+  50% {
+    transform: rotate(1deg);
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes jiggle2 {
+  0% {
+    transform: rotate(0.5deg);
+    animation-timing-function: ease-in;
+  }
+
+  50% {
+    transform: rotate(-1.0deg);
+    animation-timing-function: ease-out;
   }
 }
 
@@ -136,27 +175,23 @@ async function speak () {
   font-style: italic;
 }
 
-.btn {
+.speak-button {
   position: relative;
   flex-direction: column;
 
-  .button-actions {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1rem;
-    display: flex;
-    gap: 0.5rem;
+  img {
+    height: 50px;
   }
 }
 
 .grid {
+  overflow: auto;
   --button-columns: 5;
   --button-rows: 4;
   flex-grow: 1;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(var(--button-columns), 1fr);
-  grid-template-rows: repeat(var(--button-rows), 1fr);
+  grid-template-columns: repeat(var(--button-columns), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--button-rows), minmax(0, 1fr));
 }
 </style>

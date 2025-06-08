@@ -58,6 +58,18 @@
       },
       "header": {
         "title": "Edit button"
+      },
+      "text": {
+        "title": "Text"
+      },
+      "color": {
+        "title": "Font color"
+      },
+      "backgroundColor": {
+        "title": "Background color"
+      },
+      "image": {
+        "title": "Image"
       }
     }
   }
