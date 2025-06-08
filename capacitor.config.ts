@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'IonicTest',
+  appId: 'net.kastelic.jacobsvoice',
+  appName: 'Jacobs Voice',
   webDir: 'dist'
 };
 

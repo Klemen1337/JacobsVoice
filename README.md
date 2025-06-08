@@ -12,6 +12,7 @@ Text to speech dashboard for iOS and Android tablets
 
 ## MVP Ideas and TODO
 
+- App icon
 - Update design
 - Create button presets for different languages
 - Add button ✅
@@ -28,7 +29,12 @@ Text to speech dashboard for iOS and Android tablets
 - Setup wizard
 - Tutorial
 - Profiles
-- Sync profiles between devices
+- Sync data between devices
 - External controllers
 - Sidebar with button categories
 - Bottom bar with buttons
+- Color blind theme
+- Personalization
+  - Change font
+  - Change background color
+  - Change background image
