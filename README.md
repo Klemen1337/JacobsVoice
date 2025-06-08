@@ -10,11 +10,16 @@ Text to speech dashboard for iOS and Android tablets
     ionic cap run ios -l --external
     ionic cap open ios
 
-## Ideas
+## Ideas and TODO
 
-- Button images
-- Button color
-- Button background
+- Update design
+- Create button presets for different languages
+- Add button ✅
+- Edit button ✅
+- Remove button
+- Button image ✅
+- Button color ✅
+- Button background ✅
 - Button pages
 - Sidebar with button categories
 - Bottom bar with buttons
