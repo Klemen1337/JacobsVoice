@@ -36,5 +36,7 @@ Text to speech dashboard for iOS and Android tablets
 - Color blind theme
 - Personalization
   - Change font
+  - Change font size
+  - Change button border
   - Change background color
   - Change background image
